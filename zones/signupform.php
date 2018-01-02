@@ -5,7 +5,7 @@
         e.preventDefault();
          
         $.getJSON(
-        	'http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=checkByNomPrenomOrMail',	
+        	'http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=checkByNomPrenomOrMail',	
             {nom: $('#client_zNom').val(), prenom: $('#client_zPrenom').val() },
             function(data){
             		if('200' == data.code){

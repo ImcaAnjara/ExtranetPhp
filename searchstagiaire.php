@@ -3,7 +3,7 @@ session_start ();
 include('httpful.phar');
 
 $numerodossier = $_POST["numerodossier"] ;
-$url = "http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=getBynumero";
+$url = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getBynumero";
 $data = "&numero=" . urlencode($numerodossier);
 
 $urlEncode = $url.$data;

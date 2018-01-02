@@ -167,12 +167,12 @@ $client_journal_text= $_POST["x_journal_text"];
 }
 
 
-$url = "http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=update2";
+$url = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=update2";
 
 $datemodif = date('Y-m-d H:i:s');
 
 if(!isset($_POST["numerodossier"])){
-    header('Location: insertsuccess.php');
+    header('Location: index.php');
 }else{
     
     
@@ -239,7 +239,7 @@ if(!isset($_POST["numerodossier"])){
             $data3 .= "&ConfrAccueilVisite=" . urlencode($client_ConfrAccueilVisite);
             $data3 .= "&AttentesSpec=" . urlencode($client_AttentesSpec);
             $data3 .= "&BesoinsSpecif=" . urlencode($client_BesoinsSpecif);
-            $data3 .= "&Lecture=" . urlencode($client_x_1);
+            $data3 .= "&lecture1=" . urlencode($client_x_1);
             $data3 .= "&arts=" . urlencode($client_x_2);
             $data3 .= "&sport=" . urlencode($client_x_3);
             $data3 .= "&cuisine=" . urlencode($client_x_4);
@@ -267,7 +267,7 @@ if(!isset($_POST["numerodossier"])){
             $response3 = \Httpful\Request::get($urlEncode3)->send();
             $jsonResp3 = $response3->body;
             
-        }else if(($jsonResp2->data)!=[]){
+        }if(($jsonResp2->data)!=[]){
             $url3 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=updateToProfil";
             $datemodif = date('Y-m-d H:i:s');
             $data3 = "&numero=" . urlencode($_SESSION['numero']);
@@ -296,7 +296,7 @@ if(!isset($_POST["numerodossier"])){
             $data3 .= "&ConfrAccueilVisite=" . urlencode($client_ConfrAccueilVisite);
             $data3 .= "&AttentesSpec=" . urlencode($client_AttentesSpec);
             $data3 .= "&BesoinsSpecif=" . urlencode($client_BesoinsSpecif);
-            $data3 .= "&Lecture=" . urlencode($client_x_1);
+            $data3 .= "&lecture1=" . urlencode($client_x_1);
             $data3 .= "&arts=" . urlencode($client_x_2);
             $data3 .= "&sport=" . urlencode($client_x_3);
             $data3 .= "&cuisine=" . urlencode($client_x_4);

@@ -779,7 +779,7 @@ function checkboxall(){
                                                         
                                                          <?php 
                                                                         
-                                                                        if(isset($_SESSION['Lecture']) && ($_SESSION['Lecture']==1))
+                                                                        if(isset($_SESSION['lecture1']) && ($_SESSION['lecture1']==1))
                                                                         {
                                                                             echo("checked");
                                                                         }
@@ -789,11 +789,11 @@ function checkboxall(){
                                                             <span id=""x_lectured_span" ><input id="x_lectured" name="x_lectured" maxlength="49" 
                                                             <?php 
                                                                         
-                                                                        if(isset($_SESSION['Lecture']) && ($_SESSION['Lecture']==1))
+                                                                        if(isset($_SESSION['lecture1']) && ($_SESSION['lecture1']==1))
                                                                         {
                                                                             echo('style="display:block;"');
                                                                         }
-                                                                        if(isset($_SESSION['Lecture']) && ($_SESSION['Lecture']==0))
+                                                                        if(isset($_SESSION['lecture1']) && ($_SESSION['lecture1']==0))
                                                                         {
                                                                             echo('style="display:none;"');
                                                                         }

@@ -9,13 +9,17 @@ $_SESSION['numero'] = $_POST["numerodossier"];
 
 
 
-$url = "http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=getBynumero";
+$url = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getBynumero";
 $url2 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getByProfil";
+$url3 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getByProfilSpec";
+
 $data = "&numero=" . urlencode($_SESSION['numero']);
 $data2 = "&numero=" . urlencode($_SESSION['numero']);
+$data3 = "&numero=" . urlencode($_SESSION['numero']);
 
 $urlEncode = $url.$data;
 $urlEncode2 = $url2.$data2;
+$urlEncode3 = $url3.$data3;
 
 $response = \Httpful\Request::get($urlEncode)->send();
 $jsonResp = $response->body;
@@ -23,6 +27,9 @@ $jsonResp = $response->body;
 $response2 = \Httpful\Request::get($urlEncode2)->send();
 $jsonResp2 = $response2->body;
 
+
+$response3 = \Httpful\Request::get($urlEncode3)->send();
+$jsonResp3 = $response3->body;
 
 if(isset($jsonResp) && '200' == $jsonResp->code) {
     
@@ -90,7 +97,7 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
         $client_AttentesGramm = $jsonResp2->data[0]->AttentesGramm;
         $client_AttentesCompreh = $jsonResp2->data[0]->AttentesCompreh;
         $client_AttentesVocab = $jsonResp2->data[0]->AttentesVocab;
-        $client_AttentesSpec = $jsonResp2->data[0]->AttentesSpec;
+        $client_AttentesSpec = $jsonResp3->data->AttentesSpec;
         $client_ConfrAccueilVisite = $jsonResp2->data[0]->ConfrAccueilVisite;
         $client_ConfrTel = $jsonResp2->data[0]->ConfrTel;
         $client_ConfrReunion = $jsonResp2->data[0]->ConfrReunion;
@@ -101,7 +108,7 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
         $client_ConfrDeplace = $jsonResp2->data[0]->ConfrDeplace;
         $client_ConfrPresent = $jsonResp2->data[0]->ConfrPresent;
         $client_ConfrNegoc = $jsonResp2->data[0]->ConfrNegoc;
-        $client_BesoinsSpecif = $jsonResp2->data[0]->BesoinsSpecif;
+        $client_BesoinsSpecif = $jsonResp3->data->BesoinsSpecif;
         $client_ObjStage = $jsonResp2->data[0]->ObjStage;
         $client_sport = $jsonResp2->data[0]->sport;
         $client_jardin = $jsonResp2->data[0]->jardin;
@@ -113,7 +120,7 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
         $client_bricolage = $jsonResp2->data[0]->bricolage;
         $client_cuisine= $jsonResp2->data[0]->cuisine;
         $client_autres_interets = $jsonResp2->data[0]->autres_interets;
-        $client_Lecture = $jsonResp2->data[0]->Lecture;
+        $client_Lecture = $jsonResp2->data[0]->lecture1;
         $client_lecture_text = $jsonResp2->data[0]->lecture_text;
         $client_sport_text = $jsonResp2->data[0]->sport_text;
         $client_jardin_text = $jsonResp2->data[0]->jardin_text;
@@ -162,7 +169,7 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
         $_SESSION['bricolage']=$client_bricolage;
         $_SESSION['cuisine']=$client_cuisine;
         $_SESSION['autres_interets']=$client_autres_interets;
-        $_SESSION['Lecture']=$client_Lecture;
+        $_SESSION['lecture1']=$client_Lecture;
         $_SESSION['lecture_text']=$client_lecture_text;
         $_SESSION['sport_text']=$client_sport_text;
         $_SESSION['jardin_text']=$client_jardin_text;
