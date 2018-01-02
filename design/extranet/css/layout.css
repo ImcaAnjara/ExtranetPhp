@@ -1,0 +1,576 @@
+* {
+    border-color: #e1e1e1;
+    border-style: solid;
+    border-width: 0;
+    zoom: 1;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Open sans', sans-serif;
+    line-height: 1.6;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+
+/*
+body {
+    background: url("../images/bg.png") repeat-x scroll left top #ABBCCC;
+}*/
+
+a.home {
+    color: #0e3074;
+}
+
+.page-box {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: #2e5481;
+}
+
+a:visited {
+    color: #7996b7;
+}
+
+.header h1 {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+}
+
+h2.demoHeaders {
+    margin-top: 2em;
+    font-size: 20px;
+}
+
+p {
+    margin-bottom: 22px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+#dialog_link {
+    padding: .4em 1em .4em 20px;
+    text-decoration: none;
+    position: relative;
+}
+
+#dialog_link span.ui-icon {
+    margin: 0 5px 0 0;
+    position: absolute;
+    left: .2em;
+    top: 50%;
+    margin-top: -8px;
+}
+
+ul,
+ol {
+    padding: 0 0 0 60px;
+    margin: 0 0 22px 0;
+}
+
+ul#icons {
+    margin: 0;
+    padding: 0;
+}
+
+ul#icons li {
+    margin: 2px;
+    position: relative;
+    padding: 4px 0;
+    cursor: pointer;
+    float: left;
+    list-style: none;
+}
+
+ul#icons span.ui-icon {
+    float: left;
+    margin: 0 4px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    padding: 0px;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+#jquery-loader-background {
+    background-color: silver
+}
+
+#jquery-loader {
+    background-color: silver
+}
+
+
+/******************************************************************************
+  Header
+*******************************************************************************/
+
+.header {
+    background: rgba(255, 255, 255, .97);
+    min-height: 80px;
+    padding: 2px 0;
+    width: 100%;
+}
+
+.header .container {
+    position: relative;
+}
+
+.header .logo-box {
+    display: table;
+    table-layout: fixed;
+}
+
+.header .logo {
+    display: table-cell;
+    height: 80px;
+    max-width: 100%;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.header .logo img {
+    max-height: 80px;
+}
+
+.header .logo-box.auto-height {
+    display: block;
+    height: 100px;
+}
+
+.header .logo-box.auto-height .logo {
+    display: block;
+}
+
+.header .logo-box.auto-height img {
+    max-height: inherit;
+}
+
+.header .site-description {
+    color: #bbb;
+    font-size: 9px;
+    line-height: 1.3;
+}
+
+.fixed-header {
+    margin-top: 0;
+    padding-top: 80px;
+}
+
+.fixed-header .header {
+    background: #204590;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    z-index: 870;
+    -webkit-transition: background 0.2s linear, margin-top 0.2s linear;
+    transition: background 0.2s linear, margin-top 0.2s linear;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+}
+
+.fixed-header.background-opacity .header {
+    background: rgba(255, 255, 255, .97);
+    -webkit-transition: background 0.2s linear;
+    transition: background 0.2s linear;
+}
+
+.fixed-header.hidden-top.visible-top .header,
+.fixed-header.fixed .header {
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+}
+
+.fixed-header.hidden-top {
+    padding-top: 112px;
+    -webkit-transition: padding-top 0.2s linear;
+    transition: padding-top 0.2s linear;
+}
+
+.fixed-header.hidden-top.fixed {
+    padding-top: 104px;
+    -webkit-transition: padding-top 0.2s linear;
+    transition: padding-top 0.2s linear;
+}
+
+.fixed-header.hidden-top #top-box {
+    left: 0;
+    margin-top: -32px;
+    position: fixed;
+    top: 0;
+    z-index: 910;
+    -webkit-transition: margin-top 0.2s linear;
+    transition: margin-top 0.2s linear;
+}
+
+.fixed-header.hidden-top .header {
+    margin-top: 8px;
+    top: 0;
+}
+
+.fixed-header.hidden-top.visible-top #top-box {
+    margin-top: 0;
+    -webkit-transition: margin-top 0.2s linear;
+    transition: margin-top 0.2s linear;
+}
+
+.fixed-header.hidden-top.visible-top .header {
+    margin-top: 40px;
+    -webkit-transition: margin-top 0.2s linear;
+    transition: margin-top 0.2s linear;
+}
+
+.fixed-header.hidden-top.fixed #top-box,
+.fixed-header.hidden-top.visible-top.fixed #top-box {
+    margin-top: -40px;
+    -webkit-transition: margin-top 0.2s linear;
+    transition: margin-top 0.2s linear;
+}
+
+.fixed-header.hidden-top.fixed .header,
+.fixed-header.hidden-top.visible-top.fixed .header {
+    margin-top: 0;
+    -webkit-transition: margin-top 0.2s linear;
+    transition: margin-top 0.2s linear;
+}
+
+.header .right-box {
+    display: table;
+}
+
+.header .right-box-wrapper {
+    display: table-cell;
+    height: 80px;
+    vertical-align: middle;
+}
+
+
+/* Primary Menu */
+
+.header .primary {
+    /*  float: left;*/
+    z-index: 900;
+}
+
+.header .primary .navbar {
+    background: none;
+    border: 0 none;
+    margin: 0;
+    min-height: 44px;
+}
+
+.header .primary .navbar .navbar-collapse {
+    padding: 0;
+    position: relative;
+}
+
+.header .primary .navbar .nav {
+    margin: 0;
+    position: relative;
+}
+
+.header .primary .navbar .nav>li {
+    padding: 3px 4px 0;
+    position: relative;
+}
+
+.header .primary .navbar .nav>li>a,
+.header .primary .navbar .nav>li>a:visited {
+    background: none;
+    border: 1px solid #fff;
+    border: 1px solid transparent;
+    color: #1e1e1e;
+    padding: 11px 14px;
+    position: static;
+    text-shadow: none;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    z-index: 901;
+}
+
+.header .primary .navbar .nav>.selected>a {
+    color: #777;
+}
+
+.header .primary .navbar .nav a>i {
+    margin-right: 2px;
+    opacity: .8;
+    filter: alpha(opacity=80);
+    text-align: center;
+    width: 15px;
+}
+
+.selectBox:hover,
+.selectBox:focus,
+button {
+    outline: none;
+    text-decoration: none;
+}
+
+span {
+    color: #1D5987;
+}
+
+@import url('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+.accordion-toggle:after {
+    font-family: 'FontAwesome';
+    content: "\f078";
+    float: right;
+}
+
+.accordion-opened .accordion-toggle:after {
+    content: "\f054";
+}
+
+.navbar-brand {
+    width: 300px;
+}
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';
+    /* essential for enabling glyphicon */
+    content: "\e114";
+    /* adjust as needed, taken from bootstrap.css */
+    float: right;
+    /* adjust as needed */
+    color: grey;
+    /* adjust as needed */
+}
+
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";
+    /* adjust as needed, taken from bootstrap.css */
+}
+
+
+/*.panel-title,
+.panel-group .panel-default .panel-heading>.panel-title>a {
+    background-color: #f2f2f2;
+}*/
+
+.panel-title,
+.panel-title,
+.panel-group .panel-default .panel-heading>.panel-title>a {
+    font-size: 12px;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.panel-title {
+    position: relative
+}
+
+.col-align {
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+    float: none;
+}
+
+.col-align label span {
+    vertical-align: middle;
+    display: table-cell;
+    height: 30px;
+    color: #333;
+}
+
+.center_position {
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    z-index: 999;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/******************************************************************************
+  Main
+*******************************************************************************/
+
+#main {
+    padding: 80px 0;
+}
+
+#main.no-padding {
+    padding: 0;
+}
+
+.page-header {
+    border-bottom: 1px solid #e1e1e1;
+    margin: 0 0 20px;
+    padding: 0;
+    background: #4b7bbf;
+}
+
+.page-header .title {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    color: #fff;
+    font-size: 24px;
+    height: 75px;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.page-header .container {
+    position: relative;
+}
+
+.page-header .container:before {
+    background: #1e1e1e;
+    bottom: 0px;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 15px;
+    margin: 0 0 -1px;
+    position: absolute;
+    width: 40px;
+}
+
+
+/******************************************************************************
+  Footer
+*******************************************************************************/
+
+#footer {
+    color: #7f7f7f;
+    margin: -310px 0 0 0;
+    overflow-x: hidden;
+}
+
+#footer .footer-bottom {
+    background: #f7f7f7;
+    border-top-width: 1px;
+    font-size: 11px;
+    line-height: 17px;
+    padding: 21px 0 20px;
+}
+
+#footer .phone,
+#footer .address {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 34px;
+    position: relative;
+}
+
+#footer .footer-icon {
+    color: #c6c6c6;
+    left: 16px;
+    position: absolute;
+    top: 0;
+}
+
+#footer .up {
+    background: #c6c6c6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    display: block;
+    float: right;
+    height: 40px;
+    text-align: center;
+    width: 40px;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+#footer .up .glyphicon {
+    color: #fff;
+    margin: 14px 0 0 -.5px;
+    vertical-align: top;
+}
+
+#forms label {
+    display: block!important;
+}
+
+form label>span {
+    color: #ed1c24;
+    padding: 0 4px;
+}
+
+ul.jsouhait {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.jsouhait li {
+    float: left;
+    width: 25%;
+}
+
+.breadcrum_inner {
+    display: table-cell;
+    float: none;
+    vertical-align: middle;
+    height: 70px;
+    color: #fff;
+}
+
+* {
+    border-color: #e1e1e1;
+    border-style: solid;
+    border-width: 0;
+    zoom: 1;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media (max-width:981px) {
+    .col-align {
+        width: 100%;
+        display: inline-block;
+        height: auto;
+    }
+    .ref {
+        height: 30px;
+    }
+}
+
+@media (max-width:760px) {
+    .xs-align-bottom {
+        margin-top: 34px;
+    }
+}
