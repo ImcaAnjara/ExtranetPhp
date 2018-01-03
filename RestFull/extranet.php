@@ -220,7 +220,7 @@
 			$whereClause .= "and `numindividu` = " . addslashes($aParams['refIndividu']) . " " ;
 		}
 		if(isset($aParams['nom']) && "" != $aParams['nom']){
-			$fieldChange .= " nom = '" . $aParams['nom'] . "' ";
+			$fieldChange .= " nom = '" . utf8_decode($aParams['nom']) . "' ";
 		}
 		if(isset($aParams['prenom']) && "" != $aParams['prenom']){
 			$fieldChange .= $fieldChange == "" ? " prenom = '" . $aParams['prenom'] . "' " : ", prenom = '" . $aParams['prenom'] . "' ";

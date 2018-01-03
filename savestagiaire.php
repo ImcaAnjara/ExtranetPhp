@@ -13,12 +13,12 @@ $mail = $_POST["client_zMail"];
 
 $url = "http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=insert";
 $date_creation = date('Y-m-d H:i:s');
-$data = "&civilite=" . urlencode($civilite);
-$data .= "&nom=" . urlencode($nom);
-$data .= "&prenom=" . urlencode($prenom);
-$data .= "&societe=" . urlencode($societe);
-$data .= "&telephone=" . urlencode($telephone);
-$data .= "&mail=" . urlencode($mail) ;
+$data = "&civilite=" . urlencode(utf8_decode($civilite));
+$data .= "&nom=" . urlencode(utf8_decode($nom));
+$data .= "&prenom=" . urlencode(utf8_decode($prenom));
+$data .= "&societe=" . urlencode(utf8_decode($societe));
+$data .= "&telephone=" . urlencode(utf8_decode($telephone));
+$data .= "&mail=" . urlencode(utf8_decode($mail)) ;
 $data .= "&date_creation=" . urlencode($date_creation) ;
 
 $urlEncode = $url.$data;
@@ -32,8 +32,8 @@ if(isset($jsonResp) && '200' == $jsonResp->code){
     
     
     $url1 = "http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=checkByNomPrenomOrMail";
-    $data1 = "&nom=" . urlencode($nom);
-    $data1 .= "&prenom=" . urlencode($prenom);
+    $data1 = "&nom=" . urlencode(utf8_decode($nom));
+    $data1 .= "&prenom=" . urlencode(utf8_decode($prenom));
     $response1 = \Httpful\Request::get($url1.$data1)->send();
     
     $jsonResp1 = $response1->body;
