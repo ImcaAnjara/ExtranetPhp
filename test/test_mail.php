@@ -1,27 +1,30 @@
 <?php
 require('../phpmailer/class.phpmailer.php');
 
-$mail             = new PHPMailer();
+$mail = new PHPMailer();
+$mail->Host = 'smtp.gmail.com';
+$mail->SMTPAuth   = true;
+$mail->Port = 587; // Par défaut
 
+// Authentification
+$mail->Username = "antsiresy@gmail.com";
+$mail->Password = "2017tsiresy";
 
-$mail->SetFrom('antsiresy@gmail.com', 'First Last');
+// Expéditeur
+$mail->SetFrom('antsiresy@gmail.com', 'Nom Prénom');
+// Destinataire
+$mail->AddAddress('antsiresy2@gmail.com', 'Nom Prénom');
+// Objet
+$mail->Subject = 'Objet du message';
 
-$mail->AddReplyTo("antsiresy@gmail.com","First Last");
+// Votre message
+$mail->MsgHTML('Contenu du message en HTML');
 
-$address = "antsiresy2@gmail.com";
-$mail->AddAddress($address, "John Doe");
-
-$mail->Subject    = "PHPMailer Test Subject via mail(), basic";
-
-$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; 
-
-$mail->MsgHTML("<h1>Test</h1>");
-
-
+// Envoi du mail avec gestion des erreurs
 if(!$mail->Send()) {
-    echo "Mailer Error: " . $mail->ErrorInfo;
+    echo 'Erreur : ' . $mail->ErrorInfo;
 } else {
-    echo "Message sent!";
-}
+    echo 'Message sent !';
+} 
       
  ?>
