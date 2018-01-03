@@ -8,15 +8,15 @@ $mail->IsSMTP();
 $mail->SMTPDebug = 1;
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'ssl';
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 25; // or 587
+$mail->Host = "smtp.comcast.com";
+$mail->Port = 587; // or 587
 $mail->IsHTML(true);
 $mail->Username = "antsiresy@gmail.com";
 $mail->Password = "2017tsiresy";
 
-$mail->setFrom('antsiresy@gmail.com', 'support');
-$mail->addAddress('antsiresy2@gmail.com', 'Uma');
-$mail->addReplyTo('antsiresy@gmail.com', 'Support');
+$mail->setFrom('antsiresy@gmail', 'support');
+$mail->addAddress('antsiresy2@gmail', 'Uma');
+$mail->addReplyTo('antsiresy@gmail', 'Support');
 $mail->isHTML(true);
 
 $mail->Subject = 'Subject';
