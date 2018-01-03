@@ -9,7 +9,7 @@ $mail->SMTPDebug = 1;
 $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'ssl';
 $mail->Host = "smtp.gmail.com";
-$mail->Port = 587; // or 587
+$mail->Port = 25; // or 587
 $mail->IsHTML(true);
 $mail->Username = "antsiresy@gmail.com";
 $mail->Password = "2017tsiresy";
