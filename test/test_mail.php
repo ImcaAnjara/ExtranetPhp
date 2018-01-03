@@ -1,19 +1,20 @@
 <?php
-     $to      = 'antsiresy2@gmail.com';
-     $subject = 'Test PHP';
-     $message = 'Bonjour !';
-     $headers = 'From: antsiresy@gmail.com' . "\r\n" .
-     'Reply-To: antsiresy@gmail.com' . "\r\n" .
-     'X-Mailer: PHP/' . phpversion();
 
-//      mail($to, $subject, $message, $headers);
-     
-     
-     $CR_Mail = TRUE;
-     
-     $CR_Mail = @mail ($to, $subject, $message, $headers);
-     
-     if ($CR_Mail === FALSE)   echo " ### CR_Mail=$CR_Mail - Erreur envoi mail <br> \n";
-     else                      echo " *** CR_Mail=$CR_Mail - Mail envoyé<br> \n";
+require '../phpmailer/PHPMailerAutoload.php';
+
+$mail = new PHPMailer;
+$mail->setFrom('antsiresy@gmail.com', 'First Last');
+$mail->addReplyTo('antsiresy@gmail.com', 'First Last');
+$mail->addAddress('antsiresy2@gmail.com', 'John Doe');
+$mail->Subject = 'PHPMailer mail() test';
+// $mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
+$mail->Body = 'This is a plain-text message body';
+// $mail->addAttachment('images/phpmailer_mini.png');
+
+if (!$mail->send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+} else {
+    echo "Message sent!";
+}
       
  ?>
