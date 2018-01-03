@@ -15,9 +15,6 @@
 	
 	function getallQuestions($aParams = array()) {
 		global $con, $common, $connexion;
-		
-		$SecsSince = CLng(DateDiff("s", "01/01/1970 00:00:00", Now));
-		$orderBy = "Sin(Numéro* RND(SIN("&SecsSince&")) * 1000)";
 				
 		$sql = "select * from Questionnaires where type = 'Debut' ";
 		

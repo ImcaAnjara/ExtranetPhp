@@ -29,11 +29,22 @@ if (!isset($_SESSION['numero'])){
 					echo($_SESSION['nom'].' '.$_SESSION['prenom']);}
 					?></label><br>
 					<input type="hidden" name="numerodossier" id="numerodossier" value="<?php echo($_SESSION['numero']);?>">
-					<br><input class="btn btn-primary  special fit small" id="valider" type="submit" value="Cliquez ici pour compléter votre fiche">
-					<br><br><br><h4>Merci de nous contacter pour connaître nos formules adaptées à vos besoins
-
-					<a href="http://www.forma2plus.com/" target=blank>www.forma2plus.com</a></h4>
+					<br><input class="btn btn-primary  special fit small center-block" id="valider" type="submit" value="Cliquez ici pour compléter votre fiche">
 					</form>
+					
+					<form id="gotestform" action="question.php" method="POST" enctype="multipart/form-data" >
+					
+					<br>
+					<input type="hidden" name="numerodossiertest" id="numerodossiertest" value="<?php echo($_SESSION['numero']);?>">
+					<input type="hidden" name="nomtest" id="nomtest" value="<?php echo($_SESSION['nom']);?>">
+					<br><input class="btn btn-primary  special fit small center-block" id="valider" type="submit" style="display:<?php if($_SESSION['affiche'] == 0){
+							echo("none");}
+						?>" value="Cliquez ici pour réaliser votre test Questionnaire à Choix Multiples (test grammatical de base)">
+						
+					</form>
+					
+					<br><br><br><h4>Merci de nous contacter pour connaître nos formules adaptées à vos besoins
+					<a href="http://www.forma2plus.com/" target=blank>www.forma2plus.com</a></h4>
 				</div>
 				</div>
 					</div>

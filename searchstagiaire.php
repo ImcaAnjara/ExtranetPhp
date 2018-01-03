@@ -11,6 +11,14 @@ $urlEncode = $url.$data;
 $response = \Httpful\Request::get($urlEncode)->send();
 $jsonResp = $response->body;
 
+$url1 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getByProfil";
+$data1 = "&numero=" . urlencode($numerodossier);
+
+$urlEncode1 = $url1.$data1;
+
+$response1 = \Httpful\Request::get($urlEncode1)->send();
+$jsonResp1 = $response1->body;
+
 if(isset($jsonResp) && '200' == $jsonResp->code) {
     $client_Numero = $jsonResp->data[0]->numero;
     $client_Nom = $jsonResp->data[0]->nom;
@@ -23,7 +31,13 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
         $_SESSION['numero'] = $client_Numero;
         $_SESSION['nom'] = $client_Nom;
         $_SESSION['prenom'] = $client_Prenom;
-        $client_Prenom1 = $jsonResp->data[0]->prenom;
+        
+        if(isset($jsonResp1) && $jsonResp1->data!=[]) {
+        	$_SESSION['affiche'] = 1;
+        }else if(isset($jsonResp1) && $jsonResp1->data==[]){
+        	$_SESSION['affiche'] = 0;
+        }
+        
         
         header('Location: prefichestagiaire.php');
         
