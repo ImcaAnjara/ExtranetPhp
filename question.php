@@ -127,7 +127,7 @@ for($i=0; $i<$limit; $i++){
              <div><span><label><input type="radio" name="choix" id="choix_2" value="<?php echo($r2); ?>" > <?php echo($r2); ?></label></span></div>
              <div><span><label><input type="radio" name="choix" id="choix_3" value="<?php echo($r3); ?>" > <?php echo($r3); ?></label></span></div>
              <div><span><label><input type="radio" name="choix" id="choix_4" value="<?php echo($r4); ?>" > <?php echo($r4); ?></label></span></div>
-             <div><span><label><input type="radio" name="choix" id="choix_5" value="Ne sait pas" ><span style="color: red;"> Ne sais pas / I don't know</span></label></span></div>                                       
+             <div><span><label><input type="radio" name="choix" id="choix_5" value="Ne sait pas" checked><span style="color: red;"> Ne sais pas / I don't know</span></label></span></div>                                       
         </td>
       </tr>
       </div>
