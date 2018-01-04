@@ -1,7 +1,7 @@
 <script type="text/javascript">
 function Correction() {
 	
-	var reponses = document.getElementById('reponse').value;
+	var reponses = document.getElementById('x_r').value;
 	if(document.getElementById('choix_1').checked){
 		var valeur = document.getElementById('choix_1').value;
 		if( reponses == valeur){
@@ -133,7 +133,7 @@ for($i=0; $i<$limit; $i++){
       </div>
     </tbody>
   </table>
-  <input type="hidden" name="reponse" id="reponse" value="<?php echo($rep); ?>">
+  <input type="hidden" name="x_r" id="x_r" value="<?php echo($rep); ?>">
   <input type="hidden" name="numerotest" id="numerotest" value="<?php echo($_SESSION['numero']);?>">
   <input type="hidden" name="testnom" id="testnom" value="<?php echo($_SESSION['nomtest']);?>">
   <input class="btn btn-success  center-block" id="valider" type="button" value=">>> Passez à la question suivante / Next question >>>" onclick="Correction();">
