@@ -4,7 +4,9 @@ $title="Mise à jour éffectué";
 include ("zones/header.php");
 
 session_start ();
-
+if (!isset($_SESSION['numero'])){
+	header('Location: index.php');
+}
 ?>
 <style>
 /* Center the loader */
