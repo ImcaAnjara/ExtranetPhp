@@ -81,7 +81,7 @@ if (!isset($_SESSION['numero'])){
 $json = file_get_contents("json/questionnaire.php.json");
 $parsed_json = json_decode($json);
 
-$limit=10;
+$limit=1;
 
 for($i=0; $i<$limit; $i++){
 	$q= $parsed_json->data[$i]->Question;
