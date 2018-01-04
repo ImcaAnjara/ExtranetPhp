@@ -84,7 +84,7 @@ session_start ();
 					
 					Test de niveau / Beginning of course test<br>
 					QCM de début / MCQ test</br>
-					<form id="questionform" action="#" method="POST" enctype="multipart/form-data" >
+					<form id="questionform" action="question.php" method="POST" enctype="multipart/form-data" >
 					<p class="lead text-left">Bonjour / Dear <b><?php echo($_SESSION['civiliteStagiaire'] .' '. ' '.$_SESSION['nomStagiaire'].' '.$_SESSION['prenomStagiaire']);?></b><br>
 					Numéro: <b><?php echo($_SESSION['numerodossier']);?></b></p>
 					
@@ -96,7 +96,7 @@ session_start ();
 					
 					<input type="hidden" name="numerodossiertest" id="numerodossiertest" value="<?php echo($_SESSION['numerodossier']);?>">
 					<input type="hidden" name="nomtest" id="nomtest" value="<?php echo($_SESSION['nomStagiaire']);?>">
-					<input type="button" class="btn btn-success  center-block" id="valider" type="submit" value="Lancer le test / Run the test">
+					<input class="btn btn-success  center-block" id="valider" type="submit" value="Lancer le test / Run the test">
 					</form>
 				</div>
 				</div>
