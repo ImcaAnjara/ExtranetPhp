@@ -28,18 +28,18 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
     if(($jsonResp->data)==[]){
         header('Location: index.php');
     }else if(($jsonResp->data)!=[]){
-        $_SESSION['numero'] = $client_Numero;
-        $_SESSION['nom'] = $client_Nom;
-        $_SESSION['prenom'] = $client_Prenom;
+//         $_SESSION['numero'] = $client_Numero;
+//         $_SESSION['nom'] = $client_Nom;
+//         $_SESSION['prenom'] = $client_Prenom;
         
         if(isset($jsonResp1) && $jsonResp1->data!=[]) {
-        	$_SESSION['affiche'] = 1;
+        	$affiche = 1;
         }else if(isset($jsonResp1) && $jsonResp1->data==[]){
-        	$_SESSION['affiche'] = 0;
+        	$affiche = 0;
         }
         
         
-        header('Location: prefichestagiaire.php');
+        header('Location: prefichestagiaire.php?numero='.$client_Numero.'&nom='.$client_Nom.'&prenom='.$client_Prenom.'&affiche='.$affiche);
         
     }
     

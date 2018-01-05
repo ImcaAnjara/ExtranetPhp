@@ -72,15 +72,15 @@ session_start ();
 					<div class="panel panel-default">
 					<div class="panel-heading">
 					<p class="lead text-center">Votre numéro de dossier est le :<b><?php 
-					if(isset($_SESSION['numero'])){
-					    echo($_SESSION['numero']);
+					if(isset($_GET['numero'])){
+					    echo($_GET['numero']);
 					}else {
 					    header('Location: index.php');
 					}
 					   ?>
 					</b><br>Merci de retenir ce numéro pour le test de démarrage.</p>
-					<form id="insertform" action="update.php" method="POST" enctype="multipart/form-data" >
-					<input type="hidden" name="numerodossier" id="numerodossier" value="<?php echo($_SESSION['numero']);?>">
+					<form id="insertform" action="update.php" method="GET" enctype="multipart/form-data" >
+					<input type="hidden" name="numerodossier" id="numerodossier" value="<?php echo($_GET['numero']);?>">
 					<input class="btn btn-primary  special fit small center-block" id="valider" type="submit" value="Continuer">
 					</form>
 				</div>

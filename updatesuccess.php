@@ -86,7 +86,7 @@ if (!isset($_SESSION['numero'])){
 					
 					Test de niveau / Beginning of course test<br>
 					QCM de début / MCQ test</br>
-					<form id="questionform" action="question.php" method="POST" enctype="multipart/form-data" >
+					<form id="questionform" action="question.php" method="GET" enctype="multipart/form-data" >
 					<p class="lead text-left">Bonjour / Dear <b><?php echo($_SESSION['civiliteStagiaire'] .' '. ' '.$_SESSION['nomStagiaire'].' '.$_SESSION['prenomStagiaire']);?></b><br>
 					Numéro: <b><?php echo($_SESSION['numerodossier']);?></b></p>
 					

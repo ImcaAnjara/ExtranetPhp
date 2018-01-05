@@ -50,14 +50,13 @@ function Correction() {
 $title="Test évaluation langue";
 include ("zones/header.php");
 
-session_start();
 
 
-if (!isset($_SESSION['numero'])){
+if (!isset($_GET['numerodossiertest'])){
 	header('Location: index.php');
 }else{
-	$_SESSION['numero'] = $_POST["numerodossiertest"];
-	$_SESSION['nomtest'] = $_POST["nomtest"];
+	$numtest = $_GET["numerodossiertest"];
+	$nomtest = $_GET["nomtest"];
 }
 
 ?>
@@ -65,7 +64,7 @@ if (!isset($_SESSION['numero'])){
       <section id="main" class="no-padding">
                 <header class="page-header">
                     <div class="container ">
-                        <h1 class="title">Test en ligne de : <?php echo($_SESSION['nomtest']);?></h1>
+                        <h1 class="title">Test en ligne de : <?php echo($nomtest);?></h1>
                         <!-- <div class="breadcrumb-box breadcrumb-none"></div>-->
                     </div>
                 </header>
@@ -134,8 +133,8 @@ for($i=0; $i<$limit; $i++){
     </tbody>
   </table>
   <input type="hidden" name="x_r" id="x_r" value="<?php echo($rep); ?>">
-  <input type="hidden" name="numerotest" id="numerotest" value="<?php echo($_SESSION['numero']);?>">
-  <input type="hidden" name="testnom" id="testnom" value="<?php echo($_SESSION['nomtest']);?>">
+  <input type="hidden" name="numerotest" id="numerotest" value="<?php echo($numtest);?>">
+  <input type="hidden" name="testnom" id="testnom" value="<?php echo($nomtest);?>">
   <input class="btn btn-success  center-block" id="valider" type="button" value=">>> Passez à la question suivante / Next question >>>" onclick="Correction();">
  </form> 
 				</div>

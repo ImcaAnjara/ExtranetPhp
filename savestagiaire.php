@@ -1,5 +1,4 @@
 <?php 
-session_start ();
 include('httpful.phar');
 
 
@@ -37,8 +36,8 @@ if(isset($jsonResp) && '200' == $jsonResp->code){
     $response1 = \Httpful\Request::get($url1.$data1)->send();
     
     $jsonResp1 = $response1->body;
-    $_SESSION['numero']  = $jsonResp1->data[0]->numero;
-	header('Location: insertsuccess.php');
+    $numero  = $jsonResp1->data[0]->numero;
+	header('Location: insertsuccess.php?numero='.$numero);
 } else {
 	header('Location: insertfailed.php');
 }

@@ -5,7 +5,7 @@ include('httpful.phar');
 //$_SESSION['numero'] = $client_Numero;
 
 
-$_SESSION['numero'] = $_POST["numerodossier"];
+$numero = $_GET["numerodossier"];
 
 
 
@@ -13,9 +13,9 @@ $url = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getB
 $url2 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getByProfil";
 $url3 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getByProfilSpec";
 
-$data = "&numero=" . urlencode($_SESSION['numero']);
-$data2 = "&numero=" . urlencode($_SESSION['numero']);
-$data3 = "&numero=" . urlencode($_SESSION['numero']);
+$data = "&numero=" . urlencode($numero);
+$data2 = "&numero=" . urlencode($numero);
+$data3 = "&numero=" . urlencode($numero);
 
 $urlEncode = $url.$data;
 $urlEncode2 = $url2.$data2;
@@ -184,7 +184,7 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
         
         }
        
-        header('Location: updateprofil.php');
+        header('Location: updateprofil.php?numero='.$numero);
     }
     
 } else {
