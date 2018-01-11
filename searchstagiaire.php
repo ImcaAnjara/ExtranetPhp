@@ -32,12 +32,11 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
 //         $_SESSION['nom'] = $client_Nom;
 //         $_SESSION['prenom'] = $client_Prenom;
         
-        if(isset($jsonResp1) && $jsonResp1->data!=[]) {
+        if(isset($jsonResp1) && $jsonResp1->data!=[] && $jsonResp1->data[0]->NationInterloc !="") {
         	$affiche = 1;
         }else if(isset($jsonResp1) && $jsonResp1->data==[]){
         	$affiche = 0;
         }
-        
         
         header('Location: prefichestagiaire.php?numero='.$client_Numero.'&nom='.$client_Nom.'&prenom='.$client_Prenom.'&affiche='.$affiche);
         
