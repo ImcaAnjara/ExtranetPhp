@@ -6,7 +6,7 @@ echo($_SESSION['note'.$numtest]);
 echo "<br>";
 $tps = $_SESSION["tpssec"];
 if($tps>=60){
-    $min = (int)$tps/60;
+    $min = (int)($tps/60);
     $sec = $tps%60;
 }else{
     $min = 0;
