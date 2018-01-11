@@ -4,6 +4,10 @@ session_start ();
 // if (!isset($_SESSION['numero'])){
 //     header('Location: index.php');
 // }
+$_SESSION['numero'] = $_GET['numero'];
+$_SESSION['numerodossier'] = $_GET['numero'];
+$_SESSION['nomStagiaire'] = $_GET['nom'];
+$_SESSION['prenomStagiaire'] = $_GET['prenom'];
 ?>
 <section id="main" class="no-padding">
                 <header class="page-header">
@@ -32,11 +36,13 @@ session_start ();
 					<br><input class="btn btn-primary  special fit small center-block" id="valider" type="submit" value="Cliquez ici pour compléter votre fiche">
 					</form>
 					
-					<form id="gotestform" action="question.php" method="GET" enctype="multipart/form-data" >
+					 
 					
+					
+					<form id="gotestform" action="updatesuccess.php" method="POST" enctype="multipart/form-data" >
 					<br>
-					<input type="hidden" name="numerodossiertest" id="numerodossiertest" value="<?php echo($_GET['numero']);?>">
-					<input type="hidden" name="nomtest" id="nomtest" value="<?php echo($_GET['nom']);?>">
+					<input type="hidden" name="numerodossiertest" id="numerodossiertest" value="<?php echo($_SESSION['numerodossier']);?>">
+					<input type="hidden" name="nomtest" id="nomtest" value="<?php echo($_SESSION['nomStagiaire']);?>">
 					<br><input class="btn btn-primary  special fit small center-block" id="valider" type="submit" style="display:<?php if($_GET['stand'] == 0){
 							echo("none");}
 						?>" value="Cliquez ici pour réaliser votre test Questionnaire à Choix Multiples (test grammatical de base)">
