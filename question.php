@@ -14,7 +14,13 @@ if (!isset($_SESSION["time"])){
 $temps = explode(":",$_SESSION["time"]);
 $minutes = (int)$temps[0];
 $secondes = (int)$temps[1];
-
+if(!isset($_SESSION['note'.$numtest])){
+    $_SESSION['note'.$numtest] = 0;
+}
+if(!isset($_SESSION["tpssec"])){
+    $_SESSION["tpssec"] = 2 * 60;
+    
+}
 
 ?>
 
@@ -63,7 +69,8 @@ $(document).ready(function(){
 
 	Go();
 	function resultatQCM(){
-document.location.href="<?php echo("note.php?numerodossiertest=$numtest&nomtest=$nomtest");?>";
+		var time = $('#time').val();
+	document.location.href="<?php echo("note.php?numerodossiertest=$numtest&nomtest=$nomtest");?>&time="+time;
 		}
 });
 
