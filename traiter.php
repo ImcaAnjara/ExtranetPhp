@@ -19,7 +19,7 @@ $temps = explode(":",$_SESSION["time"]);
 $minutes = (int)$temps[0];
 $secondes = (int)$temps[1];
 
-$_SESSION["tpssec"] = (30 * 60 ) - (($minutes *60) + $secondes);
+$_SESSION["tpssec"] = (2 * 60 ) - (($minutes *60) + $secondes);
 if($num>50){
     header("Location: note.php?numerodossiertest=$numtest&nomtest=$nomtest");
 }

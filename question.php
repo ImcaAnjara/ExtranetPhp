@@ -9,7 +9,7 @@ if (!isset($_GET['numerodossiertest'])){
 	$nomtest = $_GET["nomtest"];
 }
 if (!isset($_SESSION["time"])){
-    $_SESSION["time"] = "30:00";
+    $_SESSION["time"] = "02:00";
 }
 $temps = explode(":",$_SESSION["time"]);
 $minutes = (int)$temps[0];
@@ -18,7 +18,7 @@ if(!isset($_SESSION['note'.$numtest])){
     $_SESSION['note'.$numtest] = 0;
 }
 if(!isset($_SESSION["tpssec"])){
-    $_SESSION["tpssec"] = 30 * 60;
+    $_SESSION["tpssec"] = 2 * 60;
     
 }
 
