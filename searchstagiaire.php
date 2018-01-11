@@ -38,7 +38,7 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
         	$affiche = 0;
         }
         
-        header('Location: prefichestagiaire.php?numero='.$client_Numero.'&nom='.$client_Nom.'&prenom='.$client_Prenom.'&affiche='.$affiche);
+        header('Location: prefichestagiaire.php?numero='.$client_Numero.'&nom='.$client_Nom.'&prenom='.$client_Prenom.'&stand='.$affiche);
         
     }
     

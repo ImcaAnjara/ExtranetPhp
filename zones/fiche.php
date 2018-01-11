@@ -37,7 +37,7 @@ session_start ();
 					<br>
 					<input type="hidden" name="numerodossiertest" id="numerodossiertest" value="<?php echo($_GET['numero']);?>">
 					<input type="hidden" name="nomtest" id="nomtest" value="<?php echo($_GET['nom']);?>">
-					<br><input class="btn btn-primary  special fit small center-block" id="valider" type="submit" style="display:<?php if($_GET['affiche'] == 0){
+					<br><input class="btn btn-primary  special fit small center-block" id="valider" type="submit" style="display:<?php if($_GET['stand'] == 0){
 							echo("none");}
 						?>" value="Cliquez ici pour réaliser votre test Questionnaire à Choix Multiples (test grammatical de base)">
 						
