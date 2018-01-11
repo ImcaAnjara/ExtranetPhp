@@ -1,6 +1,6 @@
 <?php 
 session_start();
-// session_unset ();
+
 $numtest=$_GET["numerodossiertest"];
 echo($_SESSION['note'.$numtest]);
 echo "<br>";
@@ -13,5 +13,5 @@ if($tps>=60){
     $sec = $tps;
 }
 echo("temps passé: $min et $sec");
-
+session_unset ();
 ?>

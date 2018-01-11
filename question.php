@@ -9,7 +9,7 @@ if (!isset($_GET['numerodossiertest'])){
 	$nomtest = $_GET["nomtest"];
 }
 if (!isset($_SESSION["time"])){
-    $_SESSION["time"] = "02:00";
+    $_SESSION["time"] = "30:00";
 }
 $temps = explode(":",$_SESSION["time"]);
 $minutes = (int)$temps[0];
@@ -18,7 +18,7 @@ if(!isset($_SESSION['note'.$numtest])){
     $_SESSION['note'.$numtest] = 0;
 }
 if(!isset($_SESSION["tpssec"])){
-    $_SESSION["tpssec"] = 2 * 60;
+    $_SESSION["tpssec"] = 30 * 60;
     
 }
 
@@ -90,8 +90,7 @@ $(document).ready(function(){
 					<div class="button-group">
 					<div class="panel panel-default">
 					<div class="panel-heading">
-					<p class="lead alert alert-success text-center"><b>Test en ligne / ONLINE TEST</p>
-					<input type="text" id="time" name="time" readonly="yes" style="font-size:28px; margin:50px; font-weight:bolder; border:0"/>
+					<p class="lead alert alert-success text-center"><b><span style="float:left"> Test en ligne / ONLINE TEST</span> -||- <span style="float:right">Temps restant: <input type="text" id="time" name="time" readonly="yes" style="font-size:20px; background-color: #dff0d8"/></span> </p>
 					<p class="text-center"><b>Sélectionner une réponse / Select an answer</b></p>
 					
 					<?php 
@@ -139,7 +138,7 @@ $_SESSION["reponse"] = $rep;
 ?>
 					
 
-<p class="text-left">Question <span style="color: red;"><?php echo($nb); ?></span> sur 50: <span style="color: red;"><?php echo($q); ?></span></p>
+<p class="text-left">Question <span style="color: red;"><?php echo($nb); ?></span> sur 50: <span style="color: red;font-size:20px;margin-left:40px"><?php echo($q); ?></span></p>
   <input type="hidden" name="numquestion" id="numquestion" value="<?php echo($nb); ?>" >
   <table class="table table-striped">
     <tbody>
