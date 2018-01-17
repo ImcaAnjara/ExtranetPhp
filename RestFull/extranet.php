@@ -709,4 +709,43 @@
 	    $connexion->closeConnexion($con);
 	    return json_encode(array('code' => 200, 'message' => " Suppression ok", 'data' =>  null));
 	}
+	
+	function checkResultByNumeroIdBase($aParams = array()) {
+		global $con, $common, $connexion;
+	
+		$sql = "select * from test_en_ligne where 1 ";
+		if(empty($aParams['numero_idbase'])) {
+			return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+			die;
+		}
+		if(!empty($aParams['numero_idbase'])) {
+			$sql .= "and `numero_idbase` = " . addslashes($aParams['numero_idbase']) . " " ;
+		}
+	
+		$res = odbc_exec($con,$sql);
+		$aData = $common->fetch2DArray($res, true);
+		$connexion->closeConnexion($con);
+		return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+	}
+	
+	function checkResultByNumero($aParams = array()) {
+		global $con, $common, $connexion;
+	
+		$sql = "select * from resultat_test where 1 ";
+		if(empty($aParams['compteur_test'])) {
+			return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+			die;
+		}
+		if(!empty($aParams['compteur_test'])) {
+			$sql .= "and `compteur_test` = " . addslashes($aParams['compteur_test']) . " " ;
+		}
+	
+		$res = odbc_exec($con,$sql);
+		$aData = $common->fetch2DArray($res, true);
+		$connexion->closeConnexion($con);
+		return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+	}
+	
+	
+	
 ?>
