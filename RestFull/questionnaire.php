@@ -23,7 +23,9 @@
 		//var_dump(json_encode($aData), json_last_error_msg ());die;
 		$connexion->closeConnexion($con);
 		
-		return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+		$tab = array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData);
+		var_dump($tab);
+		return $tab;
 	}
 	
 ?>
