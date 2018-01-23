@@ -6,6 +6,7 @@ $numtest=$_POST["numerotest"];
 $nomtest=$_POST["testnom"];
 $num = $_POST["numquestion"];
 $temps= $_POST["time"];
+$_SESSION['Compteur']  = $_POST["cptest"];
 $_SESSION["time"] = $temps;
 $_SESSION['iteration'.$numtest] = $_SESSION['iteration'.$numtest] + 1;
 if(!isset($_SESSION['note'.$numtest])){
@@ -23,6 +24,7 @@ $minutes = (int)$temps[0];
 $secondes = (int)$temps[1];
 
 $_SESSION["tpssec"] = (30 * 60 ) - (($minutes *60) + $secondes);
+
 if($num>49){
     header("Location: note.php?numerodossiertest=$numtest&nomtest=$nomtest");
 }

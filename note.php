@@ -55,6 +55,22 @@ For further assistance, please contact us on +33(0)1 47 31 13 13.</p>
         </div>
     </div>
 <?php 
+
+
+
+include('httpful.phar');
+
+$tps = ($min *60) + $sec;
+
+$url = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=UpdateresultTest";
+$data = "&compteur_test=" . urlencode($_SESSION['Compteur']);
+$data .= "&temps_passation=" . urlencode(($tps));
+$data .= "&Note_globale=" . urlencode(($_SESSION['note'.$numtest]));
+$urlEncode = $url.$data;
+$response = \Httpful\Request::get($urlEncode)->send();
+$jsonResp = $response->body;
+
+
 include ("zones/footer.php");
 session_unset ();
 ?>

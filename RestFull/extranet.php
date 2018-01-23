@@ -857,6 +857,37 @@
 	
 	}
 	
+	function UpdateresultTest($aParams = array()) {
+		global $con, $common, $connexion;
+		
+		$sql = "update test_en_ligne set ";
+		$whereClause = " where 1 ";
+		$fieldChange = "";
+		if(empty($aParams['compteur_test']) ){
+			return json_encode(array('code' => 400, 'message' => "Les parametres doivent renseignés", 'data' =>  null));
+			die;
+		}
+		if(!empty($aParams['compteur_test'])) {
+			$whereClause .= "and `compteur_test` = " . addslashes($aParams['compteur_test']) . " " ;
+		}
+		if(isset($aParams['temps_passation']) && "" != $aParams['temps_passation']){
+			$fieldChange .= " temps_passation = '" . utf8_decode($aParams['temps_passation']) . "' ";
+		}
+		if(isset($aParams['Note_globale']) && "" != $aParams['Note_globale']){
+			$fieldChange .= $fieldChange == "" ? " Note_globale = '" . $aParams['Note_globale'] . "' " : ", Note_globale = '" . $aParams['Note_globale'] . "' ";
+		}
+		
+		if($fieldChange != "" ){
+			$sql .= $fieldChange . " " . $whereClause;
+			$res = odbc_exec($con, $sql);
+		}
+		
+		
+		$connexion->closeConnexion($con);
+		return json_encode(array('code' => 200, 'message' => " Mis à jour ok", 'data' =>  null));
+	
+	}
+	
 	function deleteresultat($aParams){
 		global $con, $common, $connexion;
 		$sql = "delete from resultat_test ";

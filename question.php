@@ -137,7 +137,7 @@ for($i=0; $i<$limit; $i++){
 $_SESSION["reponse"] = $rep;
 ?>
 					
-<p>Compteur_test: <?php echo($_SESSION['Compteur_test']);?></p>
+
 <p class="text-left">Question <span style="color: red;"><?php echo($nb); ?></span> sur 50: <span style="color: red;font-size:20px;margin-left:40px"><?php echo($q); ?></span></p>
   <input type="hidden" name="numquestion" id="numquestion" value="<?php echo($nb); ?>" >
   <table class="table table-striped">
@@ -156,6 +156,8 @@ $_SESSION["reponse"] = $rep;
       </div>
     </tbody>
   </table>
+  <p>Compteur_test: <?php echo($_SESSION['Compteur_test']);?></p>
+  <input type="hidden" name="cptest" id="cptest" value="<?php echo($_SESSION['Compteur_test']);?>">
   <input type="hidden" name="numerotest" id="numerotest" value="<?php echo($numtest);?>">
   <input type="hidden" name="testnom" id="testnom" value="<?php echo($nomtest);?>">
   <input class="btn btn-success  center-block" id="valider" type="submit" value=">>> Passez à la question suivante / Next question >>>" onclick="return Correction();">
