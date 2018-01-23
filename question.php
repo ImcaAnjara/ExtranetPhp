@@ -159,6 +159,11 @@ $_SESSION["reponse"] = $rep;
   <input type="hidden" name="cptest" id="cptest" value="<?php echo($_SESSION['Compteur_test']);?>">
   <input type="hidden" name="numerotest" id="numerotest" value="<?php echo($numtest);?>">
   <input type="hidden" name="testnom" id="testnom" value="<?php echo($nomtest);?>">
+  <input type="hidden" name="quest" id="quest" value="<?php echo($q);?>">
+  <input type="hidden" name="r1" id="r1" value="<?php echo($r1);?>">
+  <input type="hidden" name="r2" id="r2" value="<?php echo($r2);?>">
+  <input type="hidden" name="r3" id="r3" value="<?php echo($r3);?>">
+  <input type="hidden" name="r4" id="r4" value="<?php echo($r4);?>">
   <input class="btn btn-success  center-block" id="valider" type="submit" value=">>> Passez à la question suivante / Next question >>>" onclick="return Correction();">
  </form> 
 				</div>
