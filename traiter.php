@@ -15,6 +15,9 @@ if(!isset($_SESSION['note'.$numtest])){
 if($_POST["choix"]==$_SESSION["reponse"]){
     $_SESSION['note'.$numtest] = $_SESSION['note'.$numtest] +1 ;
 }
+
+
+
 $temps = explode(":",$_SESSION["time"]);
 $minutes = (int)$temps[0];
 $secondes = (int)$temps[1];

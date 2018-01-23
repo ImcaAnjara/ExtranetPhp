@@ -134,6 +134,38 @@
 	    'journal_text'
 	);
 	
+	$fieldList3 = array(
+			'compteur_test',
+			'question',
+			'reponse1',
+			'val_r1',
+			'reponse2',
+			'val_r2',
+			'reponse3',
+			'val_r3',
+			'reponse4',
+			'val_r4',
+			'Note_Quest',
+			'numero'
+	);
+	
+	$fieldList4 = array(
+			'compteur_test',
+			'numero_idbase',
+			'debutfin',
+			'nom',
+			'prenom',
+			'societe',
+			'tel',
+			'date_actuelle',
+			'date_passation',
+			'heure_passation',
+			'temps_passation',
+			'Note_globale'
+	);
+	
+	
+	
 	require('Connexion.php');
 	$connexion = new Connexion();
 	$con = $connexion->openConnexion("data");
@@ -745,6 +777,120 @@
 		$connexion->closeConnexion($con);
 		return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
 	}
+	
+	
+	function GetMaxcompteurTest($aParams = array()) {
+		global $con, $common, $connexion;
+	
+		$sql = "select max(compteur_test) as lastnum from resultat_test  ";
+		
+		$res = odbc_exec($con,$sql);
+		$aData = $common->fetch2DArray($res, true);
+		$connexion->closeConnexion($con);
+		return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+	}
+	
+	
+	function Insertresultat($aParams = array()) {
+		global $con, $common, $connexion, $fieldList3;
+	
+		$sql = "INSERT into resultat_test  ";
+		$valueClause = array();
+		$fieldChange = array();
+		if(empty($aParams) || count($aParams) < 2 ) {
+			return json_encode(array('code' => 400, 'message' => "Des parametres sont necessaires", 'data' =>  null));
+			die;
+		}
+		 
+		//unset($aParams['func']);
+		foreach($aParams as $field => $value){
+			if(!empty($value) && in_array($field, $fieldList3)){
+				$valueClause[] = "`" . $field . "`";
+				$fieldChange[] = " '" . $value . "' ";
+			}
+		}
+		 
+		if(!empty($fieldChange)){
+			$sValueClause = "(" . implode(', ', $valueClause) .")";
+			$sFieldChange = " (" . implode(', ', $fieldChange) .")";
+			$sql .= $sValueClause . " values " . $sFieldChange;
+			//echo $sql;die;
+			$res = odbc_exec($con, $sql);
+		}
+		 
+		 
+		$connexion->closeConnexion($con);
+		return json_encode(array('code' => 200, 'message' => "Ajout ok", 'data' =>  null));
+		
+	}
+	
+	function InsertresultTest($aParams = array()) {
+		global $con, $common, $connexion, $fieldList4;
+	
+		$sql = "INSERT into test_en_ligne  ";
+		$valueClause = array();
+		$fieldChange = array();
+		if(empty($aParams) || count($aParams) < 2 ) {
+			return json_encode(array('code' => 400, 'message' => "Des parametres sont necessaires", 'data' =>  null));
+			die;
+		}
+			
+		//unset($aParams['func']);
+		foreach($aParams as $field => $value){
+			if(!empty($value) && in_array($field, $fieldList4)){
+				$valueClause[] = "`" . $field . "`";
+				$fieldChange[] = " '" . $value . "' ";
+			}
+		}
+			
+		if(!empty($fieldChange)){
+			$sValueClause = "(" . implode(', ', $valueClause) .")";
+			$sFieldChange = " (" . implode(', ', $fieldChange) .")";
+			$sql .= $sValueClause . " values " . $sFieldChange;
+			//echo $sql;die;
+			$res = odbc_exec($con, $sql);
+		}
+			
+			
+		$connexion->closeConnexion($con);
+		return json_encode(array('code' => 200, 'message' => "Ajout ok", 'data' =>  null));
+	
+	}
+	
+	function deleteresultat($aParams){
+		global $con, $common, $connexion;
+		$sql = "delete from resultat_test ";
+		$whereClause = " where 1 ";
+		if(empty($aParams['numero']) ){
+			return  json_encode(array('code' => 400, 'message' => "Les parametres doivent renseignés", 'data' =>  null));
+			die;
+		}
+		if(!empty($aParams['numero'])) {
+			$whereClause .= "and `numero` = " . addslashes($aParams['numero']) . " " ;
+			$sql .= $whereClause;
+			$res = odbc_exec($con, $sql);
+		}
+		$connexion->closeConnexion($con);
+		return json_encode(array('code' => 200, 'message' => " Suppression ok", 'data' =>  null));
+	}
+	
+	function deleteresulttest($aParams){
+		global $con, $common, $connexion;
+		$sql = "delete from test_en_ligne ";
+		$whereClause = " where 1 ";
+		if(empty($aParams['compteur_test']) ){
+			return  json_encode(array('code' => 400, 'message' => "Les parametres doivent renseignés", 'data' =>  null));
+			die;
+		}
+		if(!empty($aParams['compteur_test'])) {
+			$whereClause .= "and `compteur_test` = " . addslashes($aParams['compteur_test']) . " " ;
+			$sql .= $whereClause;
+			$res = odbc_exec($con, $sql);
+		}
+		$connexion->closeConnexion($con);
+		return json_encode(array('code' => 200, 'message' => " Suppression ok", 'data' =>  null));
+	}
+	
 	
 	
 	
