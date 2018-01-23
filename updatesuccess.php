@@ -11,42 +11,60 @@ if (!isset($_SESSION['numero'])){
 	header('Location: index.php');
 }
 
-$url = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=GetMaxcompteurTest";
+$urlcheck = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=checkResultByNumeroIdBase";
+$datacheck = "&numero_idbase=" . urlencode($_SESSION['numero']);
+$urlEncodecheck = $urlcheck.$datacheck;
 
-$response = \Httpful\Request::get($url)->send();
-$jsonResp = $response->body;
+$responsecheck = \Httpful\Request::get($urlEncodecheck)->send();
+$jsonRespcheck = $response->body;
 
-if(isset($jsonResp) && '200' == $jsonResp->code) {
-	$Compteur_test = $jsonResp->data[0]->lastnum;
+
+if(isset($jsonRespcheck) && '200' == $jsonRespcheck->code ) {
+	if($jsonRespcheck->data!=[]){
+		header('Location: index.php');
+	}else if(isset($jsonRespcheck) && $jsonRespcheck->data==[]){
+		$url = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=GetMaxcompteurTest";
+		
+		$response = \Httpful\Request::get($url)->send();
+		$jsonResp = $response->body;
+		
+		if(isset($jsonResp) && '200' == $jsonResp->code) {
+			$Compteur_test = $jsonResp->data[0]->lastnum;
+		}
+		$_SESSION['Compteur_test'] = $Compteur_test+1;
+		
+		$url0 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=InsertresultTest";
+		$data0 = "&compteur_test=" . urlencode($_SESSION['Compteur_test']);
+		$data0 .= "&numero_idbase=" . urlencode(($_SESSION['numero']));
+		$data0 .= "&nom=" . urlencode(($_SESSION['nomStagiaire']));
+		$data0 .= "&prenom=" . urlencode(($_SESSION['prenomStagiaire']));
+		$tel = getPhone($_SESSION['numero']);
+		$societe = getSociete($_SESSION['numero']);
+		$data0 .= "&tel=" . urlencode(($tel));
+		$data0 .= "&societe=" . urlencode(($societe));
+		$data0 .= "&debutfin=" . urlencode("D");
+		$data0 .= "&date_actuelle=" . urlencode(date("d/m/Y"));
+		$data0 .= "&date_passation=" . urlencode(date("d/m/Y"));
+		$data0 .= "&heure_passation=" . urlencode(date("H:i:s"));
+		$urlEncode0 = $url0.$data0;
+		
+		$response0 = \Httpful\Request::get($urlEncode0)->send();
+		$jsonResp1 = $response->body;
+		
+		$url1 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=Insertresultat";
+		$data1 = "&compteur_test=" . urlencode($_SESSION['Compteur_test']);
+		$numeroko = 101;
+		$data1 .= "&numero=" . urlencode(($numeroko));
+		$urlEncode1 = $url1.$data1;
+		
+		$response1 = \Httpful\Request::get($urlEncode1)->send();
+		$jsonResp1 = $response->body;
+	}
+	
 }
-$_SESSION['Compteur_test'] = $Compteur_test+1;
 
-$url0 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=InsertresultTest";
-$data0 = "&compteur_test=" . urlencode($_SESSION['Compteur_test']);
-$data0 .= "&numero_idbase=" . urlencode(($_SESSION['numero']));
-$data0 .= "&nom=" . urlencode(($_SESSION['nomStagiaire']));
-$data0 .= "&prenom=" . urlencode(($_SESSION['prenomStagiaire']));
-$tel = getPhone($_SESSION['numero']);
-$societe = getSociete($_SESSION['numero']);
-$data0 .= "&tel=" . urlencode(($tel));
-$data0 .= "&societe=" . urlencode(($societe));
-$data0 .= "&debutfin=" . urlencode("D");
-$data0 .= "&date_actuelle=" . urlencode(date("d/m/Y"));
-$data0 .= "&date_passation=" . urlencode(date("d/m/Y"));
-$data0 .= "&heure_passation=" . urlencode(date("H:i:s"));
-$urlEncode0 = $url0.$data0;
 
-$response0 = \Httpful\Request::get($urlEncode0)->send();
-$jsonResp1 = $response->body;
 
-$url1 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=Insertresultat";
-$data1 = "&compteur_test=" . urlencode($_SESSION['Compteur_test']);
-$numeroko = 101;
-$data1 .= "&numero=" . urlencode(($numeroko));
-$urlEncode1 = $url1.$data1;
-
-$response1 = \Httpful\Request::get($urlEncode1)->send();
-$jsonResp1 = $response->body;
 
 ?>
 <style>
