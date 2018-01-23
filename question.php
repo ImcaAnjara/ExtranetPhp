@@ -156,7 +156,6 @@ $_SESSION["reponse"] = $rep;
       </div>
     </tbody>
   </table>
-  <p>Compteur_test: <?php echo($_SESSION['Compteur_test']);?></p>
   <input type="hidden" name="cptest" id="cptest" value="<?php echo($_SESSION['Compteur_test']);?>">
   <input type="hidden" name="numerotest" id="numerotest" value="<?php echo($numtest);?>">
   <input type="hidden" name="testnom" id="testnom" value="<?php echo($nomtest);?>">
