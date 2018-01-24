@@ -40,15 +40,32 @@ $_SESSION['prenomStagiaire'] = $_GET['prenom'];
 					
 					
 					<form id="gotestform" action="updatesuccess.php" method="POST" enctype="multipart/form-data" >
-					<br>
+					
 					<input type="hidden" name="numerodossiertest" id="numerodossiertest" value="<?php echo($_SESSION['numerodossier']);?>">
 					<input type="hidden" name="nomtest" id="nomtest" value="<?php echo($_SESSION['nomStagiaire']);?>">
-					<br><input class="btn btn-primary  special fit small center-block" id="valider" type="submit" style="display:<?php if($_GET['stand'] == 0){
+					<input class="btn btn-primary  special fit small center-block" id="valider" type="submit" style="display:<?php if($_GET['stand'] == 0){
 							echo("none");}
 						?>" value="Cliquez ici pour réaliser votre test Questionnaire à Choix Multiples (test grammatical de base)">
 						
 					</form>
 					
+					
+					<?php 
+					include('httpful.phar');
+					
+					$urlcheck = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=checkResultByNumeroIdBase";
+					$datacheck = "&numero_idbase=" . urlencode($_SESSION['numero']);
+					$urlEncodecheck = $urlcheck.$datacheck;
+					
+					$responsecheck = \Httpful\Request::get($urlEncodecheck)->send();
+					$jsonRespcheck = $responsecheck->body;
+					
+					if(isset($jsonRespcheck) && '200' == $jsonRespcheck->code && $jsonRespcheck->data!=[]) {
+						if($jsonRespcheck->data!=[]){
+							include("gowebcal.php");
+						}
+					}
+					 ?>
 					<br><br><br><h4>Merci de nous contacter pour connaître nos formules adaptées à vos besoins
 					<a href="http://www.forma2plus.com/" target=blank>www.forma2plus.com</a></h4>
 				</div>
