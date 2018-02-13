@@ -42,6 +42,7 @@
                                                 <li> <a href="index.php">Accueil</a></li>
                                                 <li> <a href="inscription.php">Premier Accès</a></li>
                                                 <li> <a href="login.php">Accès avec identifiant</a></li>
+                                                <li> <a href="loginprof.php">Accès Professeur et Forma2+</a></li>
                                             </ul>
                                         </nav>
                                     </div>
