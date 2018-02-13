@@ -1,5 +1,7 @@
 <?php 
 
+session_start ();
+
 function test($var) {
     $var=trim($var);
     $var=strtolower($var);
@@ -17,7 +19,7 @@ function test($var) {
 }
 
 
-$_SESSION["codeprof"] = "";
+// $_SESSION["codeprof"] = "";
 
 $login = test($_POST["nomprof"]);
 $password = test($_POST["codeprof"]);
@@ -35,6 +37,9 @@ if(isset($_GET["user_id"]) && $_GET["nom"]){
         
     }
 }
+
+$_SESSION['nomprof'] = $login;
+$_SESSION['codeprof'] = $password;
 
 header("Location: StagiaireList.php");
 
