@@ -1,59 +1,41 @@
 <script type="text/javascript">
     jQuery(document).ready(function($){
+        
     $('form#formnumero #valider').click(function(e){
-        e.preventDefault();
-         
-        $.getJSON(
-        	'http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=getBynumero',	
-            {numero: $('#numerodossier').val()},
-            function(data){
-            		if('200' == data.code){
-	            		if(data.data[0] ==undefined ){
-	            			$('#myModal').modal('show');
-	                	}else{
-	                		$('#formnumero').submit();
-	                	} 
-            		}else{
-            			e.isDefaultPrevented();
-            		}
-            }
-        );
-    });
-});
 
-    
-jQuery(document).ready(function($){
-    $('form#formmail #envoyer').click(function(e){
-        e.preventDefault();
-         
-        $.getJSON(
-        	'http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=checkByNomPrenomOrMail',	
-            {mail: $('#email').val()},
-            function(data){
-            		if('200' == data.code){
-	            		if(data.data[0] ==undefined ){
-	            			$('#myModal1').modal('show');
-	                	}else{
-	                		$('#myModal2').modal('show');
-	                		$('#formmail').submit();
-	                	} 
-            		}else{
-            			e.isDefaultPrevented();
-            		}
-            }
-        );
+    	e.preventDefault();
+
+		if($('#nomprof').val() == "" && $('#codeprof').val() == "007"){
+			window.location.replace("AcceuilProf_ancien.php"); 
+		}
+		else{
+	        $.getJSON(
+	        	'http://extranet.forma2plus.com:808/php/stagiaires/professeur.php?func=checkByNomProflogin',	
+	            {Nomfamille: $('#nomprof').val(), RefInd: $('#codeprof').val()},
+	            function(data){
+					
+	            		if('200' == data.code){
+		            		if(data.message == "1" ){
+		            			$('#formnumero').submit();
+		                	}
+		            		else if (data.message == "0" ){
+		            			$('#myModal1').modal('show');
+		                	}
+		            		else {
+		            			$('#myModal').modal('show');
+		                	} 
+	            		}else{
+	            			e.isDefaultPrevented();
+	            		}
+	            		
+	            }
+	        );
+
+			}
     });
 });
 
 
-function isNumber(evt) {
-        evt = (evt) ? evt : window.event;
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        if ( (charCode > 31 && charCode < 48) || charCode > 57) {
-            return false;
-        }
-        return true;
-    }
 </script>
 
 
@@ -78,19 +60,19 @@ function isNumber(evt) {
                             <div class="col-md-6 col-md-offset-3">
                                 <h4>Saisir login et votre mot de passe: </h4>
 
-                                <form id="formnumero" action="searchstagiaire.php" method="POST" enctype="multipart/form-data" data-toggle="validator">
+                                <form id="formnumero" action="searchprofesseur.php" method="POST" enctype="multipart/form-data" data-toggle="validator">
                                     <div class="row ">
                                         <div class="form-group">
                                             <label class="col-md-4">Login: </label>
                                             <div class="col-md-8">
-                                                <input type="text" name="numerodossier" id="numerodossier" class="form-control" onkeypress="return isNumber(event)">
+                                                <input name="nomprof" type="text" id="nomprof" tabindex="1" class="form-control" >
                                             </div>
 
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-4">Mot de passe: </label>
                                             <div class="col-md-8">
-                                                <input type="text" name="numerodossier" id="numerodossier" class="form-control" onkeypress="return isNumber(event)">
+                                                <input name="codeprof" type="password" id="codeprof" class="form-control"  required>
                                             </div>
 
                                         </div>
@@ -113,7 +95,26 @@ function isNumber(evt) {
 												        <h4 class="modal-title">Informations</h4>
 												      </div>
 												      <div class="modal-body">
-												        <p>Utilisateur non enregistré.</p>
+												        <p>Vous n'avez mal renseigné vos identifiant de connexion.</p>
+												      </div>
+												      <div class="modal-footer">
+												        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+												      </div>
+												    </div>
+												
+												  </div>
+					  </div>
+					  <div id="myModal1" class="modal fade" role="dialog">
+												  <div class="modal-dialog">
+												
+												    <!-- Modal content-->
+												    <div class="modal-content">
+												      <div class="modal-header">
+												        <button type="button" class="close" data-dismiss="modal">&times;</button>
+												        <h4 class="modal-title">Informations1</h4>
+												      </div>
+												      <div class="modal-body">
+												        <p>L'identifiant ou/et le mot de passe est/sont incorrect.</p>
 												      </div>
 												      <div class="modal-footer">
 												        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
