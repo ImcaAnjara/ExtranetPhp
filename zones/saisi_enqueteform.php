@@ -1,6 +1,11 @@
 <section id="main" class="no-padding">
                 <header class="page-header">
                     <div class="container">
+                    
+                    <div class="container-fluid bg-1 text-center">
+   						 <br><img src="design/extranet/images/logo.jpg" alt="Forma2+">
+  					</div>
+                    
                         <div class="col-md-6">
                             <h1 class="title">ENQUETE DE SATISFACTION</h1>
 
@@ -16,13 +21,11 @@
 						<section>
                             <div class="col-md-6 col-md-offset-3">
                             <h4>ENQUÊTE DE SATISFACTION :<?php echo($_GET["compteur"]);?> </h4>
-
-                                
-
                             </div>
                         </section>
+                     
                     </div>
                 </div>
             </section>
         </div>
-</div>
+
