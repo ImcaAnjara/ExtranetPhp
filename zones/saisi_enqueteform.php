@@ -41,9 +41,105 @@
     					</section>
     					<br>
     					<div class="panel panel-primary">
-                          <div class="panel-heading text-center"><strong>ENQUETE DE SATISFACTION FACE A FACE</strong></div>
+                          <div class="panel-heading text-center"><strong>1. Etes-vous satisfait des informations transmises préalablement à votre formation?</strong></div>
     					</div>
-                      1. Etes-vous satisfait des informations transmises préalablement à votre formation?
+                      <div class="row">
+                          <div class="col-sm-12">
+                          	<div class="table-responsive">
+                                 <table class="table table-hover">
+                                        <thead>
+                                          <tr>
+                                            <th>Critères</th>
+                                            <th>Pas concerné</th>
+                                            <th>Insatisfait</th>
+                                            <th>Peu satisfait</th>
+                                            <th>Satisfait</th>
+                                            <th>Très satisfait</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>Organisation du stage</td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                          </tr>
+                                          <tr>
+                                            <td>Consignes administratives</td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                         	 </div>
+                          </div>
+					  </div>
+					  
+					  
+					  <br>
+    					<div class="panel panel-primary">
+                          <div class="panel-heading text-center"><strong>2. La formation vous a-t-elle permis d'atteindre les objectifs fixés? </strong></div>
+    					</div>
+                      <div class="row">
+                          <div class="col-sm-12">
+                          	<div class="table-responsive">
+                                 <table class="table table-hover">
+                                        <thead>
+                                          <tr>
+                                            <th>Critères</th>
+                                            <th>Pas concerné</th>
+                                            <th>Insatisfait</th>
+                                            <th>Peu satisfait</th>
+                                            <th>Satisfait</th>
+                                            <th>Très satisfait</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>Expression écrite</td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                          </tr>
+                                          <tr>
+                                            <td>Expression orale</td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                          </tr>
+                                          <tr>
+                                            <td>Progression grammaire</td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                          </tr>
+                                          <tr>
+                                            <td>Progression vocabulaire</td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                            <td> <input name="102" type="radio" class="with-gap" id="radio106"></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                         	 </div>
+                          </div>
+					  </div>
+					  
+					  
+                      
                     </div>
                 </div>
             </section>
