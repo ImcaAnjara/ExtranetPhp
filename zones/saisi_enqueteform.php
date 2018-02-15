@@ -15,8 +15,7 @@
                     <div class="row">
 						<section>
                             <div class="col-md-6 col-md-offset-3">
-                            
-                            <h4>Ici les nouvelles intsructions pour le dossier:<?php echo($_GET["compteur"]);?> </h4>
+                            <h4>ENQUÊTE DE SATISFACTION :<?php echo($_GET["compteur"]);?> </h4>
 
                                 
 
