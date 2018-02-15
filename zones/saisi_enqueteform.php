@@ -161,35 +161,35 @@
                                         <tbody>
                                           <tr>
                                             <td>Lien avec activité professionnelle</td>
-                                            <td> <input name="103" type="radio" class="with-gap" id="radio110"></td>
-                                            <td> <input name="103" type="radio" class="with-gap" id="radio111"></td>
-                                            <td> <input name="103" type="radio" class="with-gap" id="radio112"></td>
-                                            <td> <input name="103" type="radio" class="with-gap" id="radio113"></td>
-                                            <td> <input name="103" type="radio" class="with-gap" id="radio114"></td>
+                                            <td> <input name="1103" type="radio" class="with-gap" id="radio110"></td>
+                                            <td> <input name="1103" type="radio" class="with-gap" id="radio111"></td>
+                                            <td> <input name="1103" type="radio" class="with-gap" id="radio112"></td>
+                                            <td> <input name="1103" type="radio" class="with-gap" id="radio113"></td>
+                                            <td> <input name="1103" type="radio" class="with-gap" id="radio114"></td>
                                           </tr>
                                           <tr>
                                             <td>Planning</td>
-                                            <td> <input name="104" type="radio" class="with-gap" id="radio115"></td>
-                                            <td> <input name="104" type="radio" class="with-gap" id="radio116"></td>
-                                            <td> <input name="104" type="radio" class="with-gap" id="radio117"></td>
-                                            <td> <input name="104" type="radio" class="with-gap" id="radio118"></td>
-                                            <td> <input name="104" type="radio" class="with-gap" id="radio119"></td>
+                                            <td> <input name="1104" type="radio" class="with-gap" id="radio115"></td>
+                                            <td> <input name="1104" type="radio" class="with-gap" id="radio116"></td>
+                                            <td> <input name="1104" type="radio" class="with-gap" id="radio117"></td>
+                                            <td> <input name="1104" type="radio" class="with-gap" id="radio118"></td>
+                                            <td> <input name="1104" type="radio" class="with-gap" id="radio119"></td>
                                           </tr>
                                           <tr>
                                             <td>Rythme des cours</td>
-                                            <td> <input name="105" type="radio" class="with-gap" id="radio120"></td>
-                                            <td> <input name="105" type="radio" class="with-gap" id="radio121"></td>
-                                            <td> <input name="105" type="radio" class="with-gap" id="radio122"></td>
-                                            <td> <input name="105" type="radio" class="with-gap" id="radio123"></td>
-                                            <td> <input name="105" type="radio" class="with-gap" id="radio124"></td>
+                                            <td> <input name="1105" type="radio" class="with-gap" id="radio120"></td>
+                                            <td> <input name="1105" type="radio" class="with-gap" id="radio121"></td>
+                                            <td> <input name="1105" type="radio" class="with-gap" id="radio122"></td>
+                                            <td> <input name="1105" type="radio" class="with-gap" id="radio123"></td>
+                                            <td> <input name="1105" type="radio" class="with-gap" id="radio124"></td>
                                           </tr>
                                           <tr>
                                             <td>Structure</td>
-                                            <td> <input name="106" type="radio" class="with-gap" id="radio125"></td>
-                                            <td> <input name="106" type="radio" class="with-gap" id="radio126"></td>
-                                            <td> <input name="106" type="radio" class="with-gap" id="radio127"></td>
-                                            <td> <input name="106" type="radio" class="with-gap" id="radio128"></td>
-                                            <td> <input name="106" type="radio" class="with-gap" id="radio129"></td>
+                                            <td> <input name="1106" type="radio" class="with-gap" id="radio125"></td>
+                                            <td> <input name="1106" type="radio" class="with-gap" id="radio126"></td>
+                                            <td> <input name="1106" type="radio" class="with-gap" id="radio127"></td>
+                                            <td> <input name="1106" type="radio" class="with-gap" id="radio128"></td>
+                                            <td> <input name="1106" type="radio" class="with-gap" id="radio129"></td>
                                           </tr>
                                         </tbody>
                                       </table>
