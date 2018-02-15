@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col-xs-6 col-md-2 col-lg-3 right-box">
                             <div class="logo">
-                                <a href="index.php">
+                                <a href="">
                                     <img src="design/extranet/images/logo.jpg" class="logo-img" alt="">
                                 </a>
                             </div>
