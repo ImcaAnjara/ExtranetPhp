@@ -12,7 +12,7 @@
 									<a href="#" class="btn btn-primary btn-lg btn-block active" ><strong >Information stagiaire et pré-stagiaire, Codes anomalies, dossier personnel</strong></a>
 									<a href="#" class="btn btn-primary btn-lg btn-block active" role="button" ><strong>Début de stage :  Création fiche, Mail QCM début, Auto planification, Mail démarrage, ...</strong></a>
 									<a href="#" class="btn btn-primary btn-lg btn-block active" ><strong>Suivi des cours</strong></a>
-									<a href="#" class="btn btn-primary btn-lg btn-block active" role="button" ><strong>Fin de stage :  Mail QCM fin, Enquetes, Attestations, notes de fin</strong></a>
+									<a href="suivi_stagiaire.php" class="btn btn-primary btn-lg btn-block active" role="button" ><strong>Fin de stage :  Mail QCM fin, Enquêtes, Attestations, notes de fin</strong></a>
 									<a href="#" class="btn btn-primary btn-lg btn-block active" ><strong>Livres et supports</strong></a>
 									<a href="#" class="btn btn-primary btn-lg btn-block active" role="button" ><strong>Suivi glossaire et document stagiaire</a>
 									<br><a href="#" class="btn btn-primary btn-lg btn-block active" ><strong>Acces aux portefeuilles professeurs</a>
