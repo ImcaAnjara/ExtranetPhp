@@ -6,21 +6,17 @@
    						 <br><img src="design/extranet/images/logo.jpg" alt="Forma2+">
   					</div>
                     
-                        <div class="col-md-6">
-                            <h1 class="title">ENQUETE DE SATISFACTION</h1>
-
-                        </div>
                         <div class="col-md-6"></div>
-                        <div class="breadcrumb-box pull-right">
-                            <div class="breadcrum_inner"><a class="home" href="">Accueil</a> >  ENQUETE DE SATISFACTION : 1ère à enregistrer </div>
-                        </div>
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6"></div>
+                        <br>
                     </div>
                 </header>
                 <div class="container">
                     <div class="row">
 						<section>
                             <div class="col-md-6 col-md-offset-3">
-                            <h4>ENQUÊTE DE SATISFACTION : <?php echo($_GET["compteur"]);?> </h4>
+                            <h4>ENQUÊTE DE SATISFACTION </h4>
                             </div>
                         </section>
                         
@@ -43,7 +39,11 @@
                                 </div>
                               </div>
     					</section>
-                     
+    					<br>
+    					<div class="panel panel-primary">
+                          <div class="panel-heading text-center"><strong>ENQUETE DE SATISFACTION FACE A FACE</strong></div>
+    					</div>
+                      1. Etes-vous satisfait des informations transmises préalablement à votre formation?
                     </div>
                 </div>
             </section>
