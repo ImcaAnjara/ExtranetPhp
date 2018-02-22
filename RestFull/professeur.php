@@ -41,6 +41,52 @@ function checkByNomProflogin($aParams = array()) {
     return json_encode(array('code' => 200, 'message' => count($aData) , 'data' =>  $aData));
 }
 
+function checkEnquetebyNumero($aParams = array()) {
+    global $con, $common, $connexion;
+    
+    $sql = "select * from Enquete where 1 ";
+    if(empty($aParams['numero'])){
+        return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+    }
+    if(!empty($aParams['numero'])) {
+        $sql .= "and numero = " . $aParams['numero'];
+    }
+    
+    //$sql = "select * from Enquete where numero = 169205 ";
+    
+    
+    $res = odbc_exec($con,$sql);
+    $aData = $common->fetch2DArray($res, true);
+    //var_dump(json_encode($aData), json_last_error_msg ());die;
+    $connexion->closeConnexion($con);
+    
+    return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+
+}
+
+function checkbyIndividu($aParams = array()) {
+    global $con, $common, $connexion;
+    
+    $ref = utf8_decode('RéfIndividu');
+    $sql = "select * from Individus where 1 ";
+    if(empty($aParams['RefInd'])){
+        return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+    }
+    if(!empty($aParams['RefInd'])) {
+        $refinf = $aParams["RefInd"];
+        $sql .= "and  ".$ref." = " .$refinf;
+    }
+    
+    
+    $res = odbc_exec($con,$sql);
+    $aData = $common->fetch2DArray($res, true);
+    //var_dump(json_encode($aData), json_last_error_msg ());die;
+    $connexion->closeConnexion($con);
+    
+    return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+    
+}
+
 
 
 ?>

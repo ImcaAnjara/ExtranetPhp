@@ -1,12 +1,12 @@
 <?php 
 session_start ();
-if ($_SESSION['nomprof'] && $_SESSION['codeprof']) {
+if (isset($_SESSION['nomprof']) && isset($_SESSION['codeprof'])) {
     
     $nom = strtoupper($_SESSION['nomprof']);
     
     }
     else {
-        echo '<meta http-equiv="refresh" content="0;URL=index.php">';
+        echo '<meta http-equiv="refresh" content="0;URL=loginprof.php">';
     }
 ?>
 
