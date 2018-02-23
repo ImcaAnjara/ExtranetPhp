@@ -15,12 +15,12 @@
                     <div class="row">
 						<section>
                             <div class="col-md-6 col-md-offset-3">
-                                <h4>Saisissez le numéro de stagiaire: </h4>
+                                <h4>Saisissez le numéro de compteur du stagiaire: </h4>
 
                                 <form id="formnumero" action="premiersaisi_enquete.php" method="GET" enctype="multipart/form-data" data-toggle="validator">
                                     <div class="row ">
                                         <div class="form-group">
-                                            <label class="col-md-4">Numéro stagiaire</label>
+                                            <label class="col-md-4">Numéro compteur </label>
                                             <div class="col-md-8">
                                                 <input type="text" name="compteur" id="compteur" class="form-control">
                                             </div>
