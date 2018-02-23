@@ -525,7 +525,7 @@
                     <div class="alert alert-success">
  						 <h6><strong>Nous vous remercions d’avoir pris le temps de répondre à notre questionnaire. Vos réponses nous sont utiles pour améliorer notre service.</strong></h6> 
 					</div>
-                    <button type="button" class="btn btn-primary active center-block">Mettre à jour</button>
+                    <button type="button" class="btn btn-primary active center-block">Envoyer</button>
                     </form>
                 </div>
             </section>
