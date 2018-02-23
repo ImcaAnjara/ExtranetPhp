@@ -85,16 +85,16 @@ $coord = $civilite ." ".$nom." ".$prenom ;
                               <div class="container text-left">
                                 <div class="row">
                                   <div class="col-lg-10 mx-auto">
-                                  <label style="font-size: 18px;">Nom et prénom de l'apprenant : <?php echo($coord);?></label><br>
-                                  <label style="font-size: 18px;">Société : <?php echo($societe);?></label><br>
-                                  <label style="font-size: 18px;">Intitulé de la formation : <?php echo($formation);?></label><br>
-                                  <label style="font-size: 18px;">N° stage : <?php echo($numstage);?></label><br>
-                                  <label style="font-size: 18px;">Module : <?php echo($module);?></label><br>
-                                  <label style="font-size: 18px;">Prof FAF :</label><br>
-                                  <label style="font-size: 18px;">Prof TEL :</label><br>
-                                  <label style="font-size: 18px;">Prof TUT :</label><br>
-                                  <label style="font-size: 18px;">Période :</label><br>
-                                  <label style="font-size: 18px;">Date : <?php  echo(date("d/m/Y"));?></label><br>
+                                  <label style="font-size: 18px;color:#03F;">Nom et prénom de l'apprenant : </label> <label><?php echo($coord);?></label><br>
+                                  <label style="font-size: 18px;color:#03F;">Société : </label> <label><?php echo($societe);?></label><br>
+                                  <label style="font-size: 18px;color:#03F;">Intitulé de la formation : </label> <label><?php echo($formation);?></label><br>
+                                  <label style="font-size: 18px;color:#03F;">N° stage : </label> <label><?php echo($numstage);?></label><br>
+                                  <label style="font-size: 18px;color:#03F;">Module : </label> <label><?php echo($module);?></label><br>
+                                  <label style="font-size: 18px;color:#03F;">Prof FAF :</label><br>
+                                  <label style="font-size: 18px;color:#03F;">Prof TEL :</label><br>
+                                  <label style="font-size: 18px;color:#03F;">Prof TUT :</label><br>
+                                  <label style="font-size: 18px;color:#03F;">Période :</label><br>
+                                  <label style="font-size: 18px;color:#03F;">Date : </label> <label><?php  echo(date("d/m/Y"));?></label><br>
                                   
                                   </div>
                                 </div>
