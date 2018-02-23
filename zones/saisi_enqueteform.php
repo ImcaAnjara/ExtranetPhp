@@ -20,6 +20,7 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
         $numstage = $jsonResp->data[0]->Stage;
         $numcompteur = $jsonResp->data[0]->compteur;
         $numindividu = $jsonResp->data[0]->Individu;
+        $module = $jsonResp->data[0]->StageModulePédagogique;
     }else {
         header('Location: index.php');
     }
@@ -88,7 +89,7 @@ $coord = $civilite ." ".$nom." ".$prenom ;
                                   <label style="font-size: 18px;">Société : <?php echo($societe);?></label><br>
                                   <label style="font-size: 18px;">Intitulé de la formation : <?php echo($formation);?></label><br>
                                   <label style="font-size: 18px;">N° stage : <?php echo($numstage);?></label><br>
-                                  <label style="font-size: 18px;">Module :</label><br>
+                                  <label style="font-size: 18px;">Module : <?php echo($module);?></label><br>
                                   <label style="font-size: 18px;">Prof FAF :</label><br>
                                   <label style="font-size: 18px;">Prof TEL :</label><br>
                                   <label style="font-size: 18px;">Prof TUT :</label><br>
