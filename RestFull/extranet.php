@@ -178,6 +178,25 @@
 	$func = $aParams['func'];
 	echo $func($aParams);
 	
+	function checkStagiaireByCompteur($aParams = array()) {
+	    global $con, $common, $connexion;
+	    $sql = "select * from stagiaire where 1 ";
+	    if(empty($aParams['compteur'])){
+	        return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+	    }
+	    if(!empty($aParams['compteur'])) {
+	        
+	        $sql .= "and compteur = ".$aParams['compteur'];
+	    }
+	    
+	    $res = odbc_exec($con,$sql);
+	    $aData = $common->fetch2DArray($res, true);
+	    //var_dump(json_encode($aData), json_last_error_msg ());die;
+	    $connexion->closeConnexion($con);
+	    
+	    return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+	}
+	
 	function checkByNomPrenomOrMail($aParams = array()) {
 		global $con, $common, $connexion;
 		$sql = "select * from STAGIAIRE_Profil where 1 ";
