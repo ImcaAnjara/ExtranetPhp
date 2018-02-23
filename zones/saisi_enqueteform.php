@@ -14,7 +14,7 @@ $jsonResp = $response->body;
 if(isset($jsonResp) && '200' == $jsonResp->code) {
     
     if(($jsonResp->data)==[]){
-        header('Location: index.php');
+        header('Location: enqueteInterne.php');
         
     }else if(($jsonResp->data)!=[]){
         $numstage = $jsonResp->data[0]->Stage;
@@ -22,7 +22,7 @@ if(isset($jsonResp) && '200' == $jsonResp->code) {
         $numindividu = $jsonResp->data[0]->Individu;
         $module = $jsonResp->data[0]->StageModulePédagogique;
     }else {
-        header('Location: index.php');
+        header('Location: enqueteInterne.php');
     }
 }
 
