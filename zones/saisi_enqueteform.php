@@ -1,3 +1,62 @@
+<?php 
+include('httpful.phar');
+
+$compteur = $_GET['compteur'];
+
+$url = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=checkStagiaireByCompteur";
+$data = "&compteur=" . urlencode($compteur);
+$urlEncode = $url.$data;
+
+$response = \Httpful\Request::get($urlEncode)->send();
+
+$jsonResp = $response->body;
+
+if(isset($jsonResp) && '200' == $jsonResp->code) {
+    
+    if(($jsonResp->data)==[]){
+        header('Location: index.php');
+        
+    }else if(($jsonResp->data)!=[]){
+        $numstage = $jsonResp->data[0]->Stage;
+        $numcompteur = $jsonResp->data[0]->compteur;
+        $numindividu = $jsonResp->data[0]->Individu;
+    }else {
+        header('Location: index.php');
+    }
+}
+
+
+$url1 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=checkStagiaireBynumIndividu";
+$data1 = "&numindividu=" . urlencode($numindividu);
+$urlEncode1 = $url1.$data1;
+
+$response1 = \Httpful\Request::get($urlEncode1)->send();
+
+$jsonResp1 = $response1->body;
+
+if(isset($jsonResp1) && '200' == $jsonResp1->code) {
+    
+    if(($jsonResp1->data)==[]){
+        header('Location: index.php');
+        
+    }else if(($jsonResp1->data)!=[]){
+        $civilite = $jsonResp1->data[0]->Civilite;
+        $nom = $jsonResp1->data[0]->nom;
+        $prenom = $jsonResp1->data[0]->prenom;
+        $societe = $jsonResp1->data[0]->societe;
+        $formation = $jsonResp1->data[0]->Formation;
+    }else {
+        header('Location: index.php');
+    }
+}
+
+$coord = $civilite ." ".$nom." ".$prenom ;
+
+
+?>
+
+
+
 <section id="main" class="no-padding">
                 <header class="page-header">
                     <div class="container">
@@ -25,16 +84,16 @@
                               <div class="container text-left">
                                 <div class="row">
                                   <div class="col-lg-10 mx-auto">
-                                  <label>Nom et prénom de l'apprenant :</label><br>
-                                  <label>Société :</label><br>
-                                  <label>Intitulé de la formation :</label><br>
-                                  <label>N° stage :</label><br>
-                                  <label>Module :</label><br>
-                                  <label>Prof FAF :</label><br>
-                                  <label>Prof TEL :</label><br>
-                                  <label>Prof TUT :</label><br>
-                                  <label>Période :</label><br>
-                                  <label>Date :</label><br>
+                                  <label style="font-size: 18px;">Nom et prénom de l'apprenant : <?php echo($coord);?></label><br>
+                                  <label style="font-size: 18px;">Société : <?php echo($societe);?></label><br>
+                                  <label style="font-size: 18px;">Intitulé de la formation : <?php echo($formation);?></label><br>
+                                  <label style="font-size: 18px;">N° stage : <?php echo($numstage);?></label><br>
+                                  <label style="font-size: 18px;">Module :</label><br>
+                                  <label style="font-size: 18px;">Prof FAF :</label><br>
+                                  <label style="font-size: 18px;">Prof TEL :</label><br>
+                                  <label style="font-size: 18px;">Prof TUT :</label><br>
+                                  <label style="font-size: 18px;">Période :</label><br>
+                                  <label style="font-size: 18px;">Date : <?php  echo(date("d/m/Y"));?></label><br>
                                   
                                   </div>
                                 </div>
