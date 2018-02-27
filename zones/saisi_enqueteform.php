@@ -188,26 +188,31 @@ $proftel= $civ2." ".$nom2." ".$prenom2;
                     <div class="row">
 						<section>
                             <div class="col-md-6 col-md-offset-3">
-                            <h4>ENQUÊTE DE SATISFACTION </h4>
+                            <div class="panel panel-primary">
+                          <div class="panel-heading text-center"><h4>ENQUÊTE DE SATISFACTION </h4></div>
+    					</div>
+                            
                             </div>
                         </section>
                         
                         <section class="content-section bg-light" id="about">
                               <div class="container text-left">
                                 <div class="row">
-                                	<div class="col-sm-6">
-                                	  <label style="font-size: 18px;color:#337ab7;">Nom et prénom de l'apprenant : </label> <label><?php echo($coord);?></label><br>
-                                      <label style="font-size: 18px;color:#337ab7;">Société : </label> <label><?php echo($societe);?></label><br>
-                                      <label style="font-size: 18px;color:#337ab7;">Intitulé de la formation : </label> <label><?php echo($formation);?></label><br>
-                                      <label style="font-size: 18px;color:#337ab7;">N° stage : </label> <label><?php echo($numstage);?></label><br>
-                                      <label style="font-size: 18px;color:#337ab7;">Module : </label> <label><?php echo($module);?></label><br>
-								    <label style="font-size: 18px;color:#337ab7;">Date : </label> <label><?php  echo(date("d/m/Y"));?></label><br>
+                                	<div class="col-sm-4">
+                                	  <label style="font-size: 16px;color:#337ab7;">Nom : </label> <label style="font-size: 16px;"><?php echo($coord);?></label><br>
+                                      <label style="font-size: 16px;color:#337ab7;">Société : </label> <label style="font-size: 16px;"><?php echo($societe);?></label><br>
+								      <label style="font-size: 16px;color:#337ab7;">Date : </label> <label style="font-size: 16px;"><?php  echo(date("d/m/Y"));?></label><br>
 								    </div>
-                                	<div class="col-sm-6">
-                                		<label style="font-size: 18px;color:#337ab7;">Prof FAF :</label> <label><?php echo($proffaf);?></label><br>
-                                          <label style="font-size: 18px;color:#337ab7;">Prof TUT :</label> <label><?php echo($proftut);?></label><br>
-                                          <label style="font-size: 18px;color:#337ab7;">Prof TEL :</label> <label><?php echo($proftel);?></label><br>
-                                          <label style="font-size: 18px;color:#337ab7;">Période : </label> <label><?php echo($periode);?></label><br>
+								    <div class="col-sm-4">
+								    	<label style="font-size: 16px;color:#337ab7;">Intitulé de la formation : </label> <label style="font-size: 16px;"><?php echo($formation);?></label><br>
+								    	<label style="font-size: 16px;color:#337ab7;">N° stage : </label> <label style="font-size: 16px;"><?php echo($numstage);?></label><br>
+                                		<label style="font-size: 16px;color:#337ab7;">Module : </label> <label style="font-size: 16px;"><?php echo($module);?></label><br>
+								    </div>
+                                	<div class="col-sm-4">
+                                		  
+                                		  <label style="font-size: 16px;color:#337ab7;">Prof FAF :</label> <label style="font-size: 16px;"><?php echo($proffaf);?></label><br>
+                                          <label style="font-size: 16px;color:#337ab7;">Prof TEL :</label> <label style="font-size: 16px;"><?php echo($proftut." ".$proftel);?></label><br>
+                                          <label style="font-size: 16px;color:#337ab7;">Période : </label> <label style="font-size: 16px;"><?php echo($periode);?></label><br>
                                           
 								    </div>
                                 </div>
