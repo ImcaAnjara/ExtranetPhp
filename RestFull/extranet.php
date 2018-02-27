@@ -178,6 +178,87 @@
 	$func = $aParams['func'];
 	echo $func($aParams);
 	
+	function getPeriode($aParams = array()) {
+	    global $con, $common, $connexion;
+	    $sql="select IIf([Date_debut_conv] Is Not Null,[Date_debut_conv],[DateDeb]) AS DateDébutS, IIf([Date_fin_conv] Is Not Null,[Date_fin_conv],[DateFin]) AS DateFinS from stage inner join dossier on stage.dossier=dossier.id where 1 ";
+	    if(empty($aParams['refcommande'])){
+	        return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+	    }
+	    if(!empty($aParams['refcommande'])) {
+	        
+	        $sql .= "and stage.RéfCommande = ".$aParams['refcommande'];
+	    }
+	    $res = odbc_exec($con,$sql);
+	    $aData = $common->fetch2DArray($res, true);
+	    //var_dump(json_encode($aData), json_last_error_msg ());die;
+	    $connexion->closeConnexion($con);
+	    
+	    return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+	}
+	function getNameProfFAF($aParams = array()) {
+	    global $con, $common, $connexion;
+	    
+	    $sql="SELECT *
+        FROM Individus
+        LEFT OUTER JOIN Encours ON Individus.RéfIndividu = Encours.Producteur where TypeProduction= 'Cours en face à face' ";
+// 	    $sql="select * from Individus where RéfIndividu=28721 ";
+	    if(empty($aParams['codestage'])){
+	        return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+	    }
+	    if(!empty($aParams['codestage'])) {
+	        
+	        $sql .= "and StageCode= ".$aParams['codestage'];
+	    }
+	    $res = odbc_exec($con,$sql);
+	    $aData = $common->fetch2DArray($res, true);
+	    //var_dump(json_encode($aData), json_last_error_msg ());die;
+	    $connexion->closeConnexion($con);
+	    
+	    return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+	}
+	function getNameProfTUT($aParams = array()) {
+	    global $con, $common, $connexion;
+	    
+	    $sql="SELECT *
+        FROM Individus
+        LEFT OUTER JOIN Encours ON Individus.RéfIndividu = Encours.Producteur where TypeProduction= 'Tutorat' ";
+	    // 	    $sql="select * from Individus where RéfIndividu=28721 ";
+	    if(empty($aParams['codestage'])){
+	        return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+	    }
+	    if(!empty($aParams['codestage'])) {
+	        
+	        $sql .= "and StageCode= ".$aParams['codestage'];
+	    }
+	    $res = odbc_exec($con,$sql);
+	    $aData = $common->fetch2DArray($res, true);
+	    //var_dump(json_encode($aData), json_last_error_msg ());die;
+	    $connexion->closeConnexion($con);
+	    
+	    return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+	}
+	function getNameProfTEL($aParams = array()) {
+	    global $con, $common, $connexion;
+	    
+	    $sql="SELECT *
+        FROM Individus
+        LEFT OUTER JOIN Encours ON Individus.RéfIndividu = Encours.Producteur where TypeProduction= 'Cours par téléphone' ";
+	    // 	    $sql="select * from Individus where RéfIndividu=28721 ";
+	    if(empty($aParams['codestage'])){
+	        return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+	    }
+	    if(!empty($aParams['codestage'])) {
+	        
+	        $sql .= "and StageCode= ".$aParams['codestage'];
+	    }
+	    $res = odbc_exec($con,$sql);
+	    $aData = $common->fetch2DArray($res, true);
+	    //var_dump(json_encode($aData), json_last_error_msg ());die;
+	    $connexion->closeConnexion($con);
+	    
+	    return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+	}
+	
 	function checkStagiaireByCompteur($aParams = array()) {
 	    global $con, $common, $connexion;
 	    $sql = "select * from stagiaire where 1 ";
@@ -196,6 +277,7 @@
 	    
 	    return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
 	}
+	
 	function checkStagiaireBynumIndividu($aParams = array()) {
 	    global $con, $common, $connexion;
 	    

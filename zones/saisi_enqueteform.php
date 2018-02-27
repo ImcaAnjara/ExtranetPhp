@@ -53,7 +53,118 @@ if(isset($jsonResp1) && '200' == $jsonResp1->code) {
 
 $coord = $civilite ." ".$nom." ".$prenom ;
 
+$url2 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getPeriode";
+$data2 = "&refcommande=" . urlencode($numstage);
+$urlEncode2 = $url2.$data2;
 
+$response2 = \Httpful\Request::get($urlEncode2)->send();
+
+$jsonResp2 = $response2->body;
+
+if(isset($jsonResp2) && '200' == $jsonResp2->code) {
+    
+    if(($jsonResp2->data)==[]){
+        header('Location: index.php');
+        
+    }else if(($jsonResp2->data)!=[]){
+        $deb = $jsonResp2->data[0]->DateDébutS;
+        $fin = $jsonResp2->data[0]->DateFinS;
+    }else {
+        header('Location: index.php');
+    }
+}
+
+$datedebut = trim($deb, " 00:00:00");
+$datefin = trim($fin, " 00:00:00");
+$db = new DateTime($datedebut);
+$datedebut = $db->format('d/m/Y');
+$df = new DateTime($datefin);
+$datefin = $df->format('d/m/Y');
+$periode = "Du ".$datedebut. " Au ".$datefin;
+
+$url3 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getNameProfFAF";
+$data3 = "&codestage=" . urlencode($numstage);
+$urlEncode3 = $url3.$data3;
+
+$response3 = \Httpful\Request::get($urlEncode3)->send();
+
+$jsonResp3 = $response3->body;
+
+if(isset($jsonResp3) && '200' == $jsonResp3->code) {
+    
+    if(($jsonResp3->data)==[]){
+        $civ = "";
+        $nom = "";
+        $prenom = "";
+        
+    }else if(($jsonResp3->data)!=[]){
+        $civ = $jsonResp3->data[0]->Civilité;
+        $nom = $jsonResp3->data[0]->Nomfamille;
+        $prenom = $jsonResp3->data[0]->Prénom;
+    }else {
+        $civ = "";
+        $nom = "";
+        $prenom = "";
+    }
+}
+
+$proffaf= $civ." ".$nom." ".$prenom;
+
+$url4 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getNameProfTUT";
+$data4 = "&codestage=" . urlencode($numstage);
+$urlEncode4 = $url4.$data4;
+
+$response4 = \Httpful\Request::get($urlEncode4)->send();
+
+$jsonResp4 = $response4->body;
+
+if(isset($jsonResp4) && '200' == $jsonResp4->code) {
+    
+    if(($jsonResp4->data)==[]){
+        $civ1 = "";
+        $nom1 = "";
+        $prenom1 = "";
+        
+    }else if(($jsonResp4->data)!=[]){
+        $civ1 = $jsonResp4->data[0]->Civilité;
+        $nom1 = $jsonResp4->data[0]->Nomfamille;
+        $prenom1 = $jsonResp4->data[0]->Prénom;
+    }else {
+        $civ1 = "";
+        $nom1 = "";
+        $prenom1 = "";
+    }
+}
+
+$proftut= $civ1." ".$nom1." ".$prenom1;
+
+$url5 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getNameProfTEL";
+$data5 = "&codestage=" . urlencode($numstage);
+$urlEncode5 = $url5.$data5;
+
+$response5 = \Httpful\Request::get($urlEncode5)->send();
+
+$jsonResp5 = $response5->body;
+
+if(isset($jsonResp5) && '200' == $jsonResp5->code) {
+    
+    if(($jsonResp5->data)==[]){
+        $civ2 = "";
+        $nom2 = "";
+        $prenom2 = "";
+        
+    }else if(($jsonResp5->data)!=[]){
+        $civ2 = $jsonResp5->data[0]->Civilité;
+        $nom2 = $jsonResp5->data[0]->Nomfamille;
+        $prenom2 = $jsonResp5->data[0]->Prénom;
+    }else {
+        $civ2 = "";
+        $nom2 = "";
+        $prenom2 = "";
+    }
+}
+
+$proftel= $civ2." ".$nom2." ".$prenom2;
 ?>
 
 
@@ -84,17 +195,21 @@ $coord = $civilite ." ".$nom." ".$prenom ;
                         <section class="content-section bg-light" id="about">
                               <div class="container text-left">
                                 <div class="row">
-                                  <div class="col-lg-10 mx-auto">
-                                  <label style="font-size: 18px;color:#337ab7;">Nom et prénom de l'apprenant : </label> <label><?php echo($coord);?></label><br>
-                                  <label style="font-size: 18px;color:#337ab7;">Société : </label> <label><?php echo($societe);?></label><br>
-                                  <label style="font-size: 18px;color:#337ab7;">Intitulé de la formation : </label> <label><?php echo($formation);?></label><br>
-                                  <label style="font-size: 18px;color:#337ab7;">N° stage : </label> <label><?php echo($numstage);?></label><br>
-                                  <label style="font-size: 18px;color:#337ab7;">Module : </label> <label><?php echo($module);?></label><br>
-                                  <label style="font-size: 18px;color:#337ab7;">Prof FAF :</label><br>
-                                  <label style="font-size: 18px;color:#337ab7;">Prof TEL/TUT :</label><br>
-                                  <label style="font-size: 18px;color:#337ab7;">Période :</label><br>
-                                  <label style="font-size: 18px;color:#337ab7;">Date : </label> <label><?php  echo(date("d/m/Y"));?></label><br>
-                                  </div>
+                                	<div class="col-sm-6">
+                                	  <label style="font-size: 18px;color:#337ab7;">Nom et prénom de l'apprenant : </label> <label><?php echo($coord);?></label><br>
+                                      <label style="font-size: 18px;color:#337ab7;">Société : </label> <label><?php echo($societe);?></label><br>
+                                      <label style="font-size: 18px;color:#337ab7;">Intitulé de la formation : </label> <label><?php echo($formation);?></label><br>
+                                      <label style="font-size: 18px;color:#337ab7;">N° stage : </label> <label><?php echo($numstage);?></label><br>
+                                      <label style="font-size: 18px;color:#337ab7;">Module : </label> <label><?php echo($module);?></label><br>
+								    <label style="font-size: 18px;color:#337ab7;">Date : </label> <label><?php  echo(date("d/m/Y"));?></label><br>
+								    </div>
+                                	<div class="col-sm-6">
+                                		<label style="font-size: 18px;color:#337ab7;">Prof FAF :</label> <label><?php echo($proffaf);?></label><br>
+                                          <label style="font-size: 18px;color:#337ab7;">Prof TUT :</label> <label><?php echo($proftut);?></label><br>
+                                          <label style="font-size: 18px;color:#337ab7;">Prof TEL :</label> <label><?php echo($proftel);?></label><br>
+                                          <label style="font-size: 18px;color:#337ab7;">Période : </label> <label><?php echo($periode);?></label><br>
+                                          
+								    </div>
                                 </div>
                               </div>
     					</section>
