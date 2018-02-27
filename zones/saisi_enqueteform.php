@@ -91,11 +91,9 @@ $coord = $civilite ." ".$nom." ".$prenom ;
                                   <label style="font-size: 18px;color:#337ab7;">N° stage : </label> <label><?php echo($numstage);?></label><br>
                                   <label style="font-size: 18px;color:#337ab7;">Module : </label> <label><?php echo($module);?></label><br>
                                   <label style="font-size: 18px;color:#337ab7;">Prof FAF :</label><br>
-                                  <label style="font-size: 18px;color:#337ab7;">Prof TEL :</label><br>
-                                  <label style="font-size: 18px;color:#337ab7;">Prof TUT :</label><br>
+                                  <label style="font-size: 18px;color:#337ab7;">Prof TEL/TUT :</label><br>
                                   <label style="font-size: 18px;color:#337ab7;">Période :</label><br>
                                   <label style="font-size: 18px;color:#337ab7;">Date : </label> <label><?php  echo(date("d/m/Y"));?></label><br>
-                                  
                                   </div>
                                 </div>
                               </div>
