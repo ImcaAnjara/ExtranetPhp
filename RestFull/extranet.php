@@ -198,7 +198,7 @@
 	function getNameProfFAF($aParams = array()) {
 	    global $con, $common, $connexion;
 	    
-	    $sql="SELECT *
+	    $sql="SELECT Civilité, NomFamille, Prénom
         FROM Individus
         LEFT OUTER JOIN Encours ON Individus.RéfIndividu = Encours.Producteur where TypeProduction= 'Cours en face à face' ";
 // 	    $sql="select * from Individus where RéfIndividu=28721 ";
@@ -219,7 +219,7 @@
 	function getNameProfTUT($aParams = array()) {
 	    global $con, $common, $connexion;
 	    
-	    $sql="SELECT *
+	    $sql="SELECT Civilité, NomFamille, Prénom
         FROM Individus
         LEFT OUTER JOIN Encours ON Individus.RéfIndividu = Encours.Producteur where TypeProduction= 'Tutorat' ";
 	    // 	    $sql="select * from Individus where RéfIndividu=28721 ";
@@ -240,7 +240,7 @@
 	function getNameProfTEL($aParams = array()) {
 	    global $con, $common, $connexion;
 	    
-	    $sql="SELECT *
+	    $sql="SELECT Civilité, NomFamille, Prénom
         FROM Individus
         LEFT OUTER JOIN Encours ON Individus.RéfIndividu = Encours.Producteur where TypeProduction= 'Cours par téléphone' ";
 	    // 	    $sql="select * from Individus where RéfIndividu=28721 ";

@@ -99,7 +99,7 @@ if(isset($jsonResp3) && '200' == $jsonResp3->code) {
         
     }else if(($jsonResp3->data)!=[]){
         $civ = $jsonResp3->data[0]->Civilité;
-        $nom = $jsonResp3->data[0]->Nomfamille;
+        $nom = $jsonResp3->data[0]->NomFamille;
         $prenom = $jsonResp3->data[0]->Prénom;
     }else {
         $civ = "";
@@ -127,7 +127,7 @@ if(isset($jsonResp4) && '200' == $jsonResp4->code) {
         
     }else if(($jsonResp4->data)!=[]){
         $civ1 = $jsonResp4->data[0]->Civilité;
-        $nom1 = $jsonResp4->data[0]->Nomfamille;
+        $nom1 = $jsonResp4->data[0]->NomFamille;
         $prenom1 = $jsonResp4->data[0]->Prénom;
     }else {
         $civ1 = "";
@@ -155,7 +155,7 @@ if(isset($jsonResp5) && '200' == $jsonResp5->code) {
         
     }else if(($jsonResp5->data)!=[]){
         $civ2 = $jsonResp5->data[0]->Civilité;
-        $nom2 = $jsonResp5->data[0]->Nomfamille;
+        $nom2 = $jsonResp5->data[0]->NomFamille;
         $prenom2 = $jsonResp5->data[0]->Prénom;
     }else {
         $civ2 = "";
