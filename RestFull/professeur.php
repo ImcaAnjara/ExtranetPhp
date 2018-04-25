@@ -15,6 +15,8 @@ if(empty($aParams['func'])) {
 $func = $aParams['func'];
 echo $func($aParams);
 
+
+
 function checkByNomProflogin($aParams = array()) {
     global $con, $common, $connexion;
     
