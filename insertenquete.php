@@ -121,7 +121,7 @@ $qs10="Question 10";
 $date_enregistrement = date('Y-m-d H:i:s');
 
 
-$url = "http://extranet.forma2plus.com:808/php/stagiaires/enquete.php?func=insertEnquetedetails";
+$url = "http://extranet.forma2plus.com:808/php/stagiaires/enquete.php?func=insertEnquetedetails1";
 
 $data = "&numero=" . urlencode($_SESSION['compteur']);
 $data .= "&dateEnregistrement=" . urlencode($date_enregistrement);
@@ -224,9 +224,9 @@ $response = \Httpful\Request::get($urlEncode)->send();
 $jsonResp = $response->body;
 
 if(isset($jsonResp) && '200' == $jsonResp->code){
-	header('Location: index.php');
+	header('Location: enquetesuccess.php');
 } else {
-	header('Location: inscription.php');
+	header('Location: enquetefailed.php');
 }
 
 
