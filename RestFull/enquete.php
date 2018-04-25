@@ -210,12 +210,12 @@ function checkEnquetebyNumeros($aParams = array()) {
     global $con, $common, $connexion;
     
     $sql = "select * from Enquete_details where 1 ";
-//     if(empty($aParams['numero'])){
-//         return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
-//     }
-//     if(!empty($aParams['numero'])) {
-//         $sql .= "and numero = " . $aParams['numero'];
-//     }
+    if(empty($aParams['numero'])){
+        return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+    }
+    if(!empty($aParams['numero'])) {
+        $sql .= "and numero = " . $aParams['numero'];
+    }
     
     //$sql = "select * from Enquete where numero = 169205 ";
     
