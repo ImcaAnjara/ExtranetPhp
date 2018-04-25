@@ -121,7 +121,7 @@ $qs10="Question 10";
 $date_enregistrement = date('Y-m-d H:i:s');
 
 
-$url = "http://extranet.forma2plus.com:808/php/stagiaires/enquete.php?func=insertEnquetedetails1";
+$url = "http://extranet.forma2plus.com:808/php/stagiaires/enquete.php?func=insertEnquetedetails";
 
 $data = "&numero=" . urlencode($_SESSION['compteur']);
 $data .= "&dateEnregistrement=" . urlencode($date_enregistrement);
