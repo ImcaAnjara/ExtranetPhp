@@ -208,6 +208,93 @@ $q9c3= "Pédagogie";
 $q10 = "Etes-vous globalement satisfait de votre formation?";
 $q10c1= "Globalement";
 
+
+
+$url6 = "http://extranet.forma2plus.com:808/php/stagiaires/enquete.php?func=checkEnquetebyNumeros";
+$data6 = "&numero=" . urlencode($compteur);
+$urlEncode6 = $url6.$data6;
+
+$response6 = \Httpful\Request::get($urlEncode6)->send();
+
+$jsonResp6 = $response6->body;
+
+if(isset($jsonResp6) && '200' == $jsonResp6->code) {
+    
+    if(($jsonResp6->data)==[]){
+//         header('Location: enqueteInterne.php');
+echo("TSY MISY");
+        
+    }else if(($jsonResp6->data)!=[]){
+//         var_dump($jsonResp6->data);
+        $q1c1r = $jsonResp6->data[0]->q1c1r;
+        $q1c1r1= $jsonResp6->data[0]->q1c1r1;
+        $q1c2r = $jsonResp6->data[0]->q1c2r;
+        $q1c2r2 = $jsonResp6->data[0]->q1c2r2;
+        $q2c1r = $jsonResp6->data[0]->q2c1r;
+        $q2c1r1 = $jsonResp6->data[0]->q2c1r1;
+        $q2c2r = $jsonResp6->data[0]->q2c2r;
+        $q2c2r2 = $jsonResp6->data[0]->q2c2r2;
+        $q2c3r = $jsonResp6->data[0]->q2c3r;
+        $q2c3r3 = $jsonResp6->data[0]->q2c3r3;
+        $q2c4r = $jsonResp6->data[0]->q2c4r;
+        $q2c4r4 = $jsonResp6->data[0]->q2c4r4;
+        $q3c1r = $jsonResp6->data[0]->q3c1r;
+        $q3c1r1 = $jsonResp6->data[0]->q3c1r1;
+        $q3c2r = $jsonResp6->data[0]->q3c2r;
+        $q3c2r2 = $jsonResp6->data[0]->q3c2r2;
+        $q3c3r = $jsonResp6->data[0]->q3c3r;
+        $q3c3r3 = $jsonResp6->data[0]->q3c3r3;
+        $q3c4r = $jsonResp6->data[0]->q3c4r;
+        $q3c4r4 = $jsonResp6->data[0]->q3c4r4;
+        $q4c1r = $jsonResp6->data[0]->q4c1r;
+        $q4c1r1 = $jsonResp6->data[0]->q4c1r1;
+        $q4c2r = $jsonResp6->data[0]->q4c2r;
+        $q4c2r2 = $jsonResp6->data[0]->q4c2r2;
+        $q5c1r = $jsonResp6->data[0]->q5c1r;
+        $q5c1r1 = $jsonResp6->data[0]->q5c1r1;
+        $q5c2r = $jsonResp6->data[0]->q5c2r;
+        $q5c2r2 = $jsonResp6->data[0]->q5c2r2;
+        $q6c1r = $jsonResp6->data[0]->q6c1r;
+        $q6c1r1 = $jsonResp6->data[0]->q6c1r1;
+        $q6c2r = $jsonResp6->data[0]->q6c2r;
+        $q6c2r2 = $jsonResp6->data[0]->q6c2r2;
+        $q6c3r = $jsonResp6->data[0]->q6c3r;
+        $q6c3r3 = $jsonResp6->data[0]->q6c3r3;
+        $q6c4r = $jsonResp6->data[0]->q6c4r;
+        $q6c4r4 = $jsonResp6->data[0]->q6c4r4;
+        $q7c1r = $jsonResp6->data[0]->q7c1r;
+        $q7c1r1 = $jsonResp6->data[0]->q7c1r1;
+        $q8c1r = $jsonResp6->data[0]->q8c1r;
+        $q8c1r1 = $jsonResp6->data[0]->q8c1r1;
+        $q8c2r = $jsonResp6->data[0]->q8c2r;
+        $q8c2r2 = $jsonResp6->data[0]->q8c2r2;
+        $q8c3r = $jsonResp6->data[0]->q8c3r;
+        $q8c3r3 = $jsonResp6->data[0]->q8c3r3;
+        $q8c4r = $jsonResp6->data[0]->q8c4r;
+        $q8c4r4 = $jsonResp6->data[0]->q8c4r4;
+        $q9c1r = $jsonResp6->data[0]->q9c1r;
+        $q9c1r1 = $jsonResp6->data[0]->q9c1r1;
+        $q9c2r = $jsonResp6->data[0]->q9c2r;
+        $q9c2r2 = $jsonResp6->data[0]->q9c2r2;
+        $q9c3r = $jsonResp6->data[0]->q9c3r;
+        $q9c3r3 = $jsonResp6->data[0]->q9c3r3;
+        $q10c1r = $jsonResp6->data[0]->q10c1r;
+        $q10c1r1 = $jsonResp6->data[0]->q10c1r1;
+        $suggestions = $jsonResp6->data[0]->suggestions;
+        
+        
+    }else {
+        echo("TSY AIKO NA MISY");
+    }
+    
+}
+
+$rep1="Pas concerné";
+$rep2="Insatisfait";
+$rep3="Peu satisfait";
+$rep4="Satisfait";
+$rep5="Très satisfait";
+
 ?>
 
 
@@ -283,21 +370,21 @@ $q10c1= "Globalement";
                                         <tbody>
                                           <tr>
                                             <td><?php echo($q1c1);?></td>
-                                            <td> <input name="101" value="Pas concerné" type="radio" class="with-gap" id="radio100"></td>
-                                            <td> <input name="101" value="Insatisfait" type="radio" class="with-gap" id="radio101" ></td>
-                                            <td> <input name="101" value="Peu satisfait" type="radio" class="with-gap" id="radio102"></td>
-                                            <td> <input name="101" value="Satisfait" type="radio" class="with-gap" id="radio103"></td>
-                                            <td> <input name="101" value="Très satisfait" type="radio" class="with-gap" id="radio104"></td>
-                                            <td> <input name="101i"  type="texte" class="with-gap" id="radio104i"></td>
+                                            <td> <input name="101" value="Pas concerné" type="radio" class="with-gap" id="radio100" <?php if($q1c1r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="101" value="Insatisfait" type="radio" class="with-gap" id="radio101" <?php if($q1c1r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="101" value="Peu satisfait" type="radio" class="with-gap" id="radio102"<?php if($q1c1r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="101" value="Satisfait" type="radio" class="with-gap" id="radio103" <?php if($q1c1r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="101" value="Très satisfait" type="radio" class="with-gap" id="radio104" <?php if($q1c1r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="101i"  type="texte" class="with-gap" id="radio104i" value="<?php if(isset($q1c1r1)) echo($q1c1r1);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q1c2);?></td>
-                                            <td> <input name="102" value="Pas concerné" type="radio" class="with-gap" id="radio105"></td>
-                                            <td> <input name="102" value="Insatisfait" type="radio" class="with-gap" id="radio106"></td>
-                                            <td> <input name="102" value="Peu satisfait" type="radio" class="with-gap" id="radio107"></td>
-                                            <td> <input name="102" value="Satisfait" type="radio" class="with-gap" id="radio108"></td>
-                                            <td> <input name="102" value="Très satisfait" type="radio" class="with-gap" id="radio109"></td>
-                                            <td> <input name="102i"  type="texte" class="with-gap" id="radio109i"></td>
+                                            <td> <input name="102" value="Pas concerné" type="radio" class="with-gap" id="radio105" <?php if($q1c2r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="102" value="Insatisfait" type="radio" class="with-gap" id="radio106" <?php if($q1c2r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="102" value="Peu satisfait" type="radio" class="with-gap" id="radio107" <?php if($q1c2r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="102" value="Satisfait" type="radio" class="with-gap" id="radio108" <?php if($q1c2r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="102" value="Très satisfait" type="radio" class="with-gap" id="radio109" <?php if($q1c2r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="102i"  type="texte" class="with-gap" id="radio109i" value="<?php if(isset($q1c2r2)) echo($q1c2r2);?>"></td>
                                           </tr>
                                         </tbody>
                                       </table>
