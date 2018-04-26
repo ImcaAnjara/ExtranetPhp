@@ -288,7 +288,8 @@ $q10c1= "Globalement";
                                             <td> <input name="101" value="Peu satisfait" type="radio" class="with-gap" id="radio102"></td>
                                             <td> <input name="101" value="Satisfait" type="radio" class="with-gap" id="radio103"></td>
                                             <td> <input name="101" value="Très satisfait" type="radio" class="with-gap" id="radio104"></td>
-                                            <td> <input name="101i"  type="texte" class="with-gap" id="radio104i"></td>
+<!--                                             <td> <input name="101i"  type="texte" class="with-gap" id="radio104i"></td> -->
+                                            <td> <input name="101i" type="texte" class="with-gap" id="radio104i"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q1c2);?></td>
@@ -297,7 +298,8 @@ $q10c1= "Globalement";
                                             <td> <input name="102" value="Peu satisfait" type="radio" class="with-gap" id="radio107"></td>
                                             <td> <input name="102" value="Satisfait" type="radio" class="with-gap" id="radio108"></td>
                                             <td> <input name="102" value="Très satisfait" type="radio" class="with-gap" id="radio109"></td>
-                                            <td> <input name="102i"  type="texte" class="with-gap" id="radio109i"></td>
+<!--                                             <td> <input name="102i"  type="texte" class="with-gap" id="radio109i"></td> -->
+                                            <td> <input name="102i" type="texte" class="with-gap" id="radio109i"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -333,7 +335,8 @@ $q10c1= "Globalement";
                                             <td> <input name="103" value="Peu satisfait" type="radio" class="with-gap" id="radio112"></td>
                                             <td> <input name="103" value="Satisfait" type="radio" class="with-gap" id="radio113"></td>
                                             <td> <input name="103" value="Très satisfait" type="radio" class="with-gap" id="radio114"></td>
-                                            <td> <input name="103i" type="texte" class="with-gap" id="radio114i"></td>
+<!--                                             <td> <input name="103i" type="texte" class="with-gap" id="radio114i"></td> -->
+											<td> <input name="103i" type="texte" class="with-gap" id="radio114i"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q2c2);?></td>
@@ -342,6 +345,7 @@ $q10c1= "Globalement";
                                             <td> <input name="104" value="Peu satisfait" type="radio" class="with-gap" id="radio117"></td>
                                             <td> <input name="104" value="Satisfait" type="radio" class="with-gap" id="radio118"></td>
                                             <td> <input name="104" value="Très satisfait" type="radio" class="with-gap" id="radio119"></td>
+<!--                                             <td> <input name="104i" type="texte" class="with-gap" id="radio119i"></td> -->
                                             <td> <input name="104i" type="texte" class="with-gap" id="radio119i"></td>
                                           </tr>
                                           <tr>
@@ -351,6 +355,7 @@ $q10c1= "Globalement";
                                             <td> <input name="105" value="Peu satisfait" type="radio" class="with-gap" id="radio122"></td>
                                             <td> <input name="105" value="Satisfait" type="radio" class="with-gap" id="radio123"></td>
                                             <td> <input name="105" value="Très satisfait" type="radio" class="with-gap" id="radio124"></td>
+<!--                                             <td> <input name="105i" type="texte" class="with-gap" id="radio124i"></td> -->
                                             <td> <input name="105i" type="texte" class="with-gap" id="radio124i"></td>
                                           </tr>
                                           <tr>
@@ -360,6 +365,7 @@ $q10c1= "Globalement";
                                             <td> <input name="106" value="Peu satisfait" type="radio" class="with-gap" id="radio127"></td>
                                             <td> <input name="106" value="Satisfait" type="radio" class="with-gap" id="radio128"></td>
                                             <td> <input name="106" value="Très satisfait" type="radio" class="with-gap" id="radio129"></td>
+<!--                                             <td> <input name="106i" type="texte" class="with-gap" id="radio129i"></td> -->
                                             <td> <input name="106i" type="texte" class="with-gap" id="radio129i"></td>
                                           </tr>
                                         </tbody>
@@ -396,7 +402,8 @@ $q10c1= "Globalement";
                                             <td> <input name="1103" value="Peu satisfait" type="radio" class="with-gap" id="radioq112"></td>
                                             <td> <input name="1103" value="Satisfait" type="radio" class="with-gap" id="radioq113"></td>
                                             <td> <input name="1103" value="Très satisfait" type="radio" class="with-gap" id="radioq114"></td>
-                                            <td> <input name="1103i"  type="texte" class="with-gap" id="radioq114i"></td>
+<!--                                             <td> <input name="1103i"  type="texte" class="with-gap" id="radioq114i"></td> -->
+                                            <td> <input name="1103i" type="texte" class="with-gap" id="radioq114i"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q3c2);?></td>
@@ -405,7 +412,8 @@ $q10c1= "Globalement";
                                             <td> <input name="1104" value="Peu satisfait" type="radio" class="with-gap" id="radioq117"></td>
                                             <td> <input name="1104" value="Satisfait" type="radio" class="with-gap" id="radioq118"></td>
                                             <td> <input name="1104" value="Très satisfait" type="radio" class="with-gap" id="radioq119"></td>
-                                            <td> <input name="1104i"  type="texte" class="with-gap" id="radioq119i"></td>
+<!--                                             <td> <input name="1104i"  type="texte" class="with-gap" id="radioq119i"></td> -->
+                                            <td> <input name="1104i" type="texte" class="with-gap" id="radioq119i"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q3c3);?></td>
@@ -414,7 +422,8 @@ $q10c1= "Globalement";
                                             <td> <input name="1105" value="Peu satisfait" type="radio" class="with-gap" id="radioq122"></td>
                                             <td> <input name="1105" value="Satisfait" type="radio" class="with-gap" id="radioq123"></td>
                                             <td> <input name="1105" value="Très satisfait" type="radio" class="with-gap" id="radioq124"></td>
-                                            <td> <input name="1105i"  type="texte" class="with-gap" id="radioq124i"></td>
+<!--                                             <td> <input name="1105i"  type="texte" class="with-gap" id="radioq124i"></td> -->
+                                            <td> <input name="1105i" type="texte" class="with-gap" id="radioq124i"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q3c4);?></td>
@@ -423,7 +432,8 @@ $q10c1= "Globalement";
                                             <td> <input name="1106" value="Peu satisfait" type="radio" class="with-gap" id="radioq127"></td>
                                             <td> <input name="1106" value="Satisfait" type="radio" class="with-gap" id="radioq128"></td>
                                             <td> <input name="1106" value="Très satisfait" type="radio" class="with-gap" id="radioq129"></td>
-                                            <td> <input name="1106i"  type="texte" class="with-gap" id="radioq129i"></td>
+<!--                                             <td> <input name="1106i"  type="texte" class="with-gap" id="radioq129i"></td> -->
+                                            <td> <input name="1106i" type="texte" class="with-gap" id="radioq129i"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -459,7 +469,8 @@ $q10c1= "Globalement";
                                             <td> <input name="107" value="Peu satisfait" type="radio" class="with-gap" id="radio132"></td>
                                             <td> <input name="107" value="Satisfait" type="radio" class="with-gap" id="radio133"></td>
                                             <td> <input name="107" value="Très satisfait" type="radio" class="with-gap" id="radio134"></td>
-                                            <td> <input name="107i"  type="texte" class="with-gap" id="radio134i"></td>
+<!--                                             <td> <input name="107i"  type="texte" class="with-gap" id="radio134i"></td> -->
+                                            <td> <input name="107i" type="texte" class="with-gap" id="radio134i"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q4c2);?></td>
@@ -468,7 +479,8 @@ $q10c1= "Globalement";
                                             <td> <input name="108" value="Peu satisfait" type="radio" class="with-gap" id="radio137"></td>
                                             <td> <input name="108" value="Satisfait" type="radio" class="with-gap" id="radio138"></td>
                                             <td> <input name="108" value="Très satisfait" type="radio" class="with-gap" id="radio139"></td>
-                                            <td> <input name="108i"  type="texte" class="with-gap" id="radio139i"></td>
+<!--                                             <td> <input name="108i"  type="texte" class="with-gap" id="radio139i"></td> -->
+                                            <td> <input name="108i" type="texte" class="with-gap" id="radio139i"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -503,7 +515,8 @@ $q10c1= "Globalement";
                                             <td> <input name="109" value="Peu satisfait" type="radio" class="with-gap" id="radio142"></td>
                                             <td> <input name="109" value="Satisfait" type="radio" class="with-gap" id="radio143"></td>
                                             <td> <input name="109" value="Très satisfait" type="radio" class="with-gap" id="radio144"></td>
-                                            <td> <input name="109i"  type="texte" class="with-gap" id="radio144i"></td>
+<!--                                             <td> <input name="109i"  type="texte" class="with-gap" id="radio144i"></td> -->
+                                            <td> <input name="109i" type="texte" class="with-gap" id="radio144i"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q5c2);?></td>
@@ -512,7 +525,8 @@ $q10c1= "Globalement";
                                             <td> <input name="110" value="Peu satisfait" type="radio" class="with-gap" id="radio147"></td>
                                             <td> <input name="110" value="Satisfait" type="radio" class="with-gap" id="radio148"></td>
                                             <td> <input name="110" value="Très satisfait" type="radio" class="with-gap" id="radio149"></td>
-                                            <td> <input name="110i"  type="texte" class="with-gap" id="radio149i"></td>
+<!--                                             <td> <input name="110i"  type="texte" class="with-gap" id="radio149i"></td> -->
+                                            <td> <input name="110i" type="texte" class="with-gap" id="radio149i"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -777,7 +791,7 @@ $q10c1= "Globalement";
 					  
 					  <div class="form-group">
                           <label for="comment">Vos suggestions: </label>
-                          <textarea class="form-control" rows="5" name="comment"></textarea>
+                          <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
                        </div>
                     </div>
                     <div class="alert alert-success">
