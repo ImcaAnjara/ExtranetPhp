@@ -222,7 +222,7 @@ if(isset($jsonResp6) && '200' == $jsonResp6->code) {
     
     if(($jsonResp6->data)==[]){
 //         header('Location: enqueteInterne.php');
-echo("TSY MISY");
+echo("");
         
     }else if(($jsonResp6->data)!=[]){
 //         var_dump($jsonResp6->data);
@@ -280,20 +280,37 @@ echo("TSY MISY");
         $q9c3r3 = $jsonResp6->data[0]->q9c3r3;
         $q10c1r = $jsonResp6->data[0]->q10c1r;
         $q10c1r1 = $jsonResp6->data[0]->q10c1r1;
-        $suggestions = $jsonResp6->data[0]->suggestions;
         
         
     }else {
-        echo("TSY AIKO NA MISY");
+        echo("");
     }
     
 }
 
-$rep1="Pas concerné";
-$rep2="Insatisfait";
-$rep3="Peu satisfait";
-$rep4="Satisfait";
-$rep5="Très satisfait";
+
+$url7 = "http://extranet.forma2plus.com:808/php/stagiaires/enquete.php?func=checkEnquetesuggestionsbyNumero";
+$data7 = "&numero=" . urlencode($compteur);
+$urlEncode7 = $url7.$data7;
+
+$response7 = \Httpful\Request::get($urlEncode7)->send();
+
+$jsonResp7 = $response7->body;
+
+if(isset($jsonResp7) && '200' == $jsonResp7->code) {
+    
+    if(($jsonResp7->data)==[]){
+        //         header('Location: enqueteInterne.php');
+        echo("");
+        
+    }else if(($jsonResp7->data)!=[]){
+        $suggestions = $jsonResp7->data->suggestions;
+    }else {
+        echo("");
+    }
+    
+}
+
 
 ?>
 
@@ -314,7 +331,7 @@ $rep5="Très satisfait";
                     </div>
                 </header>
                 <div class="container">
-                <form action="insertenquete.php" method="POST" enctype="multipart/form-data">
+                <form action="updatenquete.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
 						<section>
                             <div class="col-md-6 col-md-offset-3">
@@ -415,39 +432,39 @@ $rep5="Très satisfait";
                                         <tbody>
                                           <tr>
                                             <td><?php echo($q2c1);?></td>
-                                            <td> <input name="103" value="Pas concerné" type="radio" class="with-gap" id="radio110"></td>
-                                            <td> <input name="103" value="Insatisfait" type="radio" class="with-gap" id="radio111"></td>
-                                            <td> <input name="103" value="Peu satisfait" type="radio" class="with-gap" id="radio112"></td>
-                                            <td> <input name="103" value="Satisfait" type="radio" class="with-gap" id="radio113"></td>
-                                            <td> <input name="103" value="Très satisfait" type="radio" class="with-gap" id="radio114"></td>
-                                            <td> <input name="103i" type="texte" class="with-gap" id="radio114i"></td>
+                                            <td> <input name="103" value="Pas concerné" type="radio" class="with-gap" id="radio110" <?php if($q2c1r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="103" value="Insatisfait" type="radio" class="with-gap" id="radio111" <?php if($q2c1r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="103" value="Peu satisfait" type="radio" class="with-gap" id="radio112" <?php if($q2c1r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="103" value="Satisfait" type="radio" class="with-gap" id="radio113" <?php if($q2c1r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="103" value="Très satisfait" type="radio" class="with-gap" id="radio114" <?php if($q2c1r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="103i" type="texte" class="with-gap" id="radio114i" value="<?php if(isset($q2c1r1)) echo($q2c1r1);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q2c2);?></td>
-                                            <td> <input name="104" value="Pas concerné" type="radio" class="with-gap" id="radio115"></td>
-                                            <td> <input name="104" value="Insatisfait" type="radio" class="with-gap" id="radio116"></td>
-                                            <td> <input name="104" value="Peu satisfait" type="radio" class="with-gap" id="radio117"></td>
-                                            <td> <input name="104" value="Satisfait" type="radio" class="with-gap" id="radio118"></td>
-                                            <td> <input name="104" value="Très satisfait" type="radio" class="with-gap" id="radio119"></td>
-                                            <td> <input name="104i" type="texte" class="with-gap" id="radio119i"></td>
+                                            <td> <input name="104" value="Pas concerné" type="radio" class="with-gap" id="radio115" <?php if($q2c2r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="104" value="Insatisfait" type="radio" class="with-gap" id="radio116" <?php if($q2c2r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="104" value="Peu satisfait" type="radio" class="with-gap" id="radio117" <?php if($q2c2r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="104" value="Satisfait" type="radio" class="with-gap" id="radio118" <?php if($q2c2r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="104" value="Très satisfait" type="radio" class="with-gap" id="radio119" <?php if($q2c2r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="104i" type="texte" class="with-gap" id="radio119i" value="<?php if(isset($q2c2r2)) echo($q2c2r2);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q2c3);?></td>
-                                            <td> <input name="105" value="Pas concerné" type="radio" class="with-gap" id="radio120"></td>
-                                            <td> <input name="105" value="Insatisfait" type="radio" class="with-gap" id="radio121"></td>
-                                            <td> <input name="105" value="Peu satisfait" type="radio" class="with-gap" id="radio122"></td>
-                                            <td> <input name="105" value="Satisfait" type="radio" class="with-gap" id="radio123"></td>
-                                            <td> <input name="105" value="Très satisfait" type="radio" class="with-gap" id="radio124"></td>
-                                            <td> <input name="105i" type="texte" class="with-gap" id="radio124i"></td>
+                                            <td> <input name="105" value="Pas concerné" type="radio" class="with-gap" id="radio120" <?php if($q2c3r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="105" value="Insatisfait" type="radio" class="with-gap" id="radio121" <?php if($q2c3r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="105" value="Peu satisfait" type="radio" class="with-gap" id="radio122" <?php if($q2c3r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="105" value="Satisfait" type="radio" class="with-gap" id="radio123" <?php if($q2c3r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="105" value="Très satisfait" type="radio" class="with-gap" id="radio124" <?php if($q2c3r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="105i" type="texte" class="with-gap" id="radio124i" value="<?php if(isset($q2c2r3)) echo($q2c2r3);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q2c4);?></td>
-                                            <td> <input name="106" value="Pas concerné" type="radio" class="with-gap" id="radio125"></td>
-                                            <td> <input name="106" value="Insatisfait" type="radio" class="with-gap" id="radio126"></td>
-                                            <td> <input name="106" value="Peu satisfait" type="radio" class="with-gap" id="radio127"></td>
-                                            <td> <input name="106" value="Satisfait" type="radio" class="with-gap" id="radio128"></td>
-                                            <td> <input name="106" value="Très satisfait" type="radio" class="with-gap" id="radio129"></td>
-                                            <td> <input name="106i" type="texte" class="with-gap" id="radio129i"></td>
+                                            <td> <input name="106" value="Pas concerné" type="radio" class="with-gap" id="radio125" <?php if($q2c4r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="106" value="Insatisfait" type="radio" class="with-gap" id="radio126" <?php if($q2c4r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="106" value="Peu satisfait" type="radio" class="with-gap" id="radio127" <?php if($q2c4r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="106" value="Satisfait" type="radio" class="with-gap" id="radio128" <?php if($q2c4r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="106" value="Très satisfait" type="radio" class="with-gap" id="radio129" <?php if($q2c4r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="106i" type="texte" class="with-gap" id="radio129i" value="<?php if(isset($q2c2r4)) echo($q2c2r4);?>"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -478,39 +495,39 @@ $rep5="Très satisfait";
                                         <tbody>
                                           <tr>
                                             <td><?php echo($q3c1);?></td>
-                                            <td> <input name="1103" value="Pas concerné" type="radio" class="with-gap" id="radioq110"></td>
-                                            <td> <input name="1103" value="Insatisfait"  type="radio" class="with-gap" id="radioq111"></td>
-                                            <td> <input name="1103" value="Peu satisfait" type="radio" class="with-gap" id="radioq112"></td>
-                                            <td> <input name="1103" value="Satisfait" type="radio" class="with-gap" id="radioq113"></td>
-                                            <td> <input name="1103" value="Très satisfait" type="radio" class="with-gap" id="radioq114"></td>
-                                            <td> <input name="1103i"  type="texte" class="with-gap" id="radioq114i"></td>
+                                            <td> <input name="1103" value="Pas concerné" type="radio" class="with-gap" id="radioq110" <?php if($q3c1r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="1103" value="Insatisfait"  type="radio" class="with-gap" id="radioq111" <?php if($q3c1r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1103" value="Peu satisfait" type="radio" class="with-gap" id="radioq112" <?php if($q3c1r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1103" value="Satisfait" type="radio" class="with-gap" id="radioq113" <?php if($q3c1r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1103" value="Très satisfait" type="radio" class="with-gap" id="radioq114" <?php if($q3c1r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1103i"  type="texte" class="with-gap" id="radioq114i" value="<?php if(isset($q3c1r1)) echo($q3c1r1);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q3c2);?></td>
-                                            <td> <input name="1104" value="Pas concerné" type="radio" class="with-gap" id="radioq115"></td>
-                                            <td> <input name="1104" value="Insatisfait"  type="radio" class="with-gap" id="radioq116"></td>
-                                            <td> <input name="1104" value="Peu satisfait" type="radio" class="with-gap" id="radioq117"></td>
-                                            <td> <input name="1104" value="Satisfait" type="radio" class="with-gap" id="radioq118"></td>
-                                            <td> <input name="1104" value="Très satisfait" type="radio" class="with-gap" id="radioq119"></td>
-                                            <td> <input name="1104i"  type="texte" class="with-gap" id="radioq119i"></td>
+                                            <td> <input name="1104" value="Pas concerné" type="radio" class="with-gap" id="radioq115" <?php if($q3c2r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="1104" value="Insatisfait"  type="radio" class="with-gap" id="radioq116" <?php if($q3c2r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1104" value="Peu satisfait" type="radio" class="with-gap" id="radioq117" <?php if($q3c2r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1104" value="Satisfait" type="radio" class="with-gap" id="radioq118" <?php if($q3c2r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1104" value="Très satisfait" type="radio" class="with-gap" id="radioq119" <?php if($q3c2r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1104i"  type="texte" class="with-gap" id="radioq119i" value="<?php if(isset($q3c2r2)) echo($q3c2r2);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q3c3);?></td>
-                                            <td> <input name="1105" value="Pas concerné" type="radio" class="with-gap" id="radioq120"></td>
-                                            <td> <input name="1105" value="Insatisfait"  type="radio" class="with-gap" id="radioq121"></td>
-                                            <td> <input name="1105" value="Peu satisfait" type="radio" class="with-gap" id="radioq122"></td>
-                                            <td> <input name="1105" value="Satisfait" type="radio" class="with-gap" id="radioq123"></td>
-                                            <td> <input name="1105" value="Très satisfait" type="radio" class="with-gap" id="radioq124"></td>
-                                            <td> <input name="1105i"  type="texte" class="with-gap" id="radioq124i"></td>
+                                            <td> <input name="1105" value="Pas concerné" type="radio" class="with-gap" id="radioq120" <?php if($q3c3r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="1105" value="Insatisfait"  type="radio" class="with-gap" id="radioq121" <?php if($q3c3r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1105" value="Peu satisfait" type="radio" class="with-gap" id="radioq122" <?php if($q3c3r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1105" value="Satisfait" type="radio" class="with-gap" id="radioq123" <?php if($q3c3r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1105" value="Très satisfait" type="radio" class="with-gap" id="radioq124" <?php if($q3c3r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1105i"  type="texte" class="with-gap" id="radioq124i" value="<?php if(isset($q3c3r3)) echo($q3c3r3);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q3c4);?></td>
-                                            <td> <input name="1106" value="Pas concerné" type="radio" class="with-gap" id="radioq125"></td>
-                                            <td> <input name="1106" value="Insatisfait"  type="radio" class="with-gap" id="radioq126"></td>
-                                            <td> <input name="1106" value="Peu satisfait" type="radio" class="with-gap" id="radioq127"></td>
-                                            <td> <input name="1106" value="Satisfait" type="radio" class="with-gap" id="radioq128"></td>
-                                            <td> <input name="1106" value="Très satisfait" type="radio" class="with-gap" id="radioq129"></td>
-                                            <td> <input name="1106i"  type="texte" class="with-gap" id="radioq129i"></td>
+                                            <td> <input name="1106" value="Pas concerné" type="radio" class="with-gap" id="radioq125" <?php if($q3c4r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="1106" value="Insatisfait"  type="radio" class="with-gap" id="radioq126" <?php if($q3c4r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1106" value="Peu satisfait" type="radio" class="with-gap" id="radioq127" <?php if($q3c4r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1106" value="Satisfait" type="radio" class="with-gap" id="radioq128" <?php if($q3c4r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1106" value="Très satisfait" type="radio" class="with-gap" id="radioq129" <?php if($q3c4r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="1106i"  type="texte" class="with-gap" id="radioq129i" value="<?php if(isset($q3c4r4)) echo($q3c4r4);?>"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -541,21 +558,21 @@ $rep5="Très satisfait";
                                         <tbody>
                                           <tr>
                                             <td><?php echo($q4c1);?></td>
-                                            <td> <input name="107" value="Pas concerné" type="radio" class="with-gap" id="radio130"></td>
-                                            <td> <input name="107" value="Insatisfait"  type="radio" class="with-gap" id="radio131"></td>
-                                            <td> <input name="107" value="Peu satisfait" type="radio" class="with-gap" id="radio132"></td>
-                                            <td> <input name="107" value="Satisfait" type="radio" class="with-gap" id="radio133"></td>
-                                            <td> <input name="107" value="Très satisfait" type="radio" class="with-gap" id="radio134"></td>
-                                            <td> <input name="107i"  type="texte" class="with-gap" id="radio134i"></td>
+                                            <td> <input name="107" value="Pas concerné" type="radio" class="with-gap" id="radio130" <?php if($q4c1r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="107" value="Insatisfait"  type="radio" class="with-gap" id="radio131" <?php if($q4c1r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="107" value="Peu satisfait" type="radio" class="with-gap" id="radio132" <?php if($q4c1r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="107" value="Satisfait" type="radio" class="with-gap" id="radio133" <?php if($q4c1r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="107" value="Très satisfait" type="radio" class="with-gap" id="radio134" <?php if($q4c1r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="107i"  type="texte" class="with-gap" id="radio134i" value="<?php if(isset($q4c1r1)) echo($q4c1r1);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q4c2);?></td>
-                                            <td> <input name="108" value="Pas concerné" type="radio" class="with-gap" id="radio135"></td>
-                                            <td> <input name="108" value="Insatisfait"  type="radio" class="with-gap" id="radio136"></td>
-                                            <td> <input name="108" value="Peu satisfait" type="radio" class="with-gap" id="radio137"></td>
-                                            <td> <input name="108" value="Satisfait" type="radio" class="with-gap" id="radio138"></td>
-                                            <td> <input name="108" value="Très satisfait" type="radio" class="with-gap" id="radio139"></td>
-                                            <td> <input name="108i"  type="texte" class="with-gap" id="radio139i"></td>
+                                            <td> <input name="108" value="Pas concerné" type="radio" class="with-gap" id="radio135" <?php if($q4c2r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="108" value="Insatisfait"  type="radio" class="with-gap" id="radio136" <?php if($q4c2r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="108" value="Peu satisfait" type="radio" class="with-gap" id="radio137" <?php if($q4c2r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="108" value="Satisfait" type="radio" class="with-gap" id="radio138" <?php if($q4c2r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="108" value="Très satisfait" type="radio" class="with-gap" id="radio139" <?php if($q4c2r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="108i"  type="texte" class="with-gap" id="radio139i" value="<?php if(isset($q4c2r2)) echo($q4c2r2);?>"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -585,21 +602,21 @@ $rep5="Très satisfait";
                                         <tbody>
                                           <tr>
                                             <td><?php echo($q5c1);?></td>
-                                            <td> <input name="109" value="Pas concerné" type="radio" class="with-gap" id="radio140"></td>
-                                            <td> <input name="109" value="Insatisfait" type="radio" class="with-gap" id="radio141"></td>
-                                            <td> <input name="109" value="Peu satisfait" type="radio" class="with-gap" id="radio142"></td>
-                                            <td> <input name="109" value="Satisfait" type="radio" class="with-gap" id="radio143"></td>
-                                            <td> <input name="109" value="Très satisfait" type="radio" class="with-gap" id="radio144"></td>
-                                            <td> <input name="109i"  type="texte" class="with-gap" id="radio144i"></td>
+                                            <td> <input name="109" value="Pas concerné" type="radio" class="with-gap" id="radio140" <?php if($q5c1r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="109" value="Insatisfait" type="radio" class="with-gap" id="radio141" <?php if($q5c1r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="109" value="Peu satisfait" type="radio" class="with-gap" id="radio142" <?php if($q5c1r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="109" value="Satisfait" type="radio" class="with-gap" id="radio143" <?php if($q5c1r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="109" value="Très satisfait" type="radio" class="with-gap" id="radio144" <?php if($q5c1r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="109i"  type="texte" class="with-gap" id="radio144i" value="<?php if(isset($q5c1r1)) echo($q5c1r1);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q5c2);?></td>
-                                            <td> <input name="110" value="Pas concerné" type="radio" class="with-gap" id="radio145"></td>
-                                            <td> <input name="110" value="Insatisfait" type="radio" class="with-gap" id="radio146"></td>
-                                            <td> <input name="110" value="Peu satisfait" type="radio" class="with-gap" id="radio147"></td>
-                                            <td> <input name="110" value="Satisfait" type="radio" class="with-gap" id="radio148"></td>
-                                            <td> <input name="110" value="Très satisfait" type="radio" class="with-gap" id="radio149"></td>
-                                            <td> <input name="110i"  type="texte" class="with-gap" id="radio149i"></td>
+                                            <td> <input name="110" value="Pas concerné" type="radio" class="with-gap" id="radio145" <?php if($q5c2r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="110" value="Insatisfait" type="radio" class="with-gap" id="radio146" <?php if($q5c2r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="110" value="Peu satisfait" type="radio" class="with-gap" id="radio147" <?php if($q5c2r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="110" value="Satisfait" type="radio" class="with-gap" id="radio148" <?php if($q5c2r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="110" value="Très satisfait" type="radio" class="with-gap" id="radio149" <?php if($q5c2r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="110i"  type="texte" class="with-gap" id="radio149i" value="<?php if(isset($q5c2r2)) echo($q4c2r2);?>"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -629,39 +646,39 @@ $rep5="Très satisfait";
                                         <tbody>
                                           <tr>
                                             <td><?php echo($q6c1);?></td>
-                                            <td> <input name="111" value="Pas concerné" type="radio" class="with-gap" id="radio150"></td>
-                                            <td> <input name="111" value="Insatisfait" type="radio" class="with-gap" id="radio151"></td>
-                                            <td> <input name="111" value="Peu satisfait" type="radio" class="with-gap" id="radio152"></td>
-                                            <td> <input name="111" value="Satisfait" type="radio" class="with-gap" id="radio153"></td>
-                                            <td> <input name="111" value="Très satisfait" type="radio" class="with-gap" id="radio154"></td>
-                                            <td> <input name="111i" type="texte" class="with-gap" id="radio154i"></td>
+                                            <td> <input name="111" value="Pas concerné" type="radio" class="with-gap" id="radio150" <?php if($q6c1r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="111" value="Insatisfait" type="radio" class="with-gap" id="radio151" <?php if($q6c1r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="111" value="Peu satisfait" type="radio" class="with-gap" id="radio152" <?php if($q6c1r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="111" value="Satisfait" type="radio" class="with-gap" id="radio153" <?php if($q6c1r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="111" value="Très satisfait" type="radio" class="with-gap" id="radio154" <?php if($q6c1r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="111i" type="texte" class="with-gap" id="radio154i" value="<?php if(isset($q6c1r1)) echo($q6c1r1);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q6c2);?></td>
-                                            <td> <input name="112" value="Pas concerné" type="radio" class="with-gap" id="radio155"></td>
-                                            <td> <input name="112" value="Insatisfait" type="radio" class="with-gap" id="radio156"></td>
-                                            <td> <input name="112" value="Peu satisfait" type="radio" class="with-gap" id="radio157"></td>
-                                            <td> <input name="112" value="Satisfait" type="radio" class="with-gap" id="radio158"></td>
-                                            <td> <input name="112" value="Très satisfait" type="radio" class="with-gap" id="radio159"></td>
-                                            <td> <input name="112i" type="texte" class="with-gap" id="radio159i"></td>
+                                            <td> <input name="112" value="Pas concerné" type="radio" class="with-gap" id="radio155" <?php if($q6c2r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="112" value="Insatisfait" type="radio" class="with-gap" id="radio156" <?php if($q6c2r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="112" value="Peu satisfait" type="radio" class="with-gap" id="radio157" <?php if($q6c2r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="112" value="Satisfait" type="radio" class="with-gap" id="radio158" <?php if($q6c2r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="112" value="Très satisfait" type="radio" class="with-gap" id="radio159" <?php if($q6c2r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="112i" type="texte" class="with-gap" id="radio159i" value="<?php if(isset($q6c2r2)) echo($q6c2r2);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q6c3);?></td>
-                                            <td> <input name="113" value="Pas concerné" type="radio" class="with-gap" id="radio160"></td>
-                                            <td> <input name="113" value="Insatisfait" type="radio" class="with-gap" id="radio161"></td>
-                                            <td> <input name="113" value="Peu satisfait" type="radio" class="with-gap" id="radio162"></td>
-                                            <td> <input name="113" value="Satisfait" type="radio" class="with-gap" id="radio163"></td>
-                                            <td> <input name="113" value="Très satisfait" type="radio" class="with-gap" id="radio164"></td>
-                                            <td> <input name="113i"  type="texte" class="with-gap" id="radio164i"></td>
+                                            <td> <input name="113" value="Pas concerné" type="radio" class="with-gap" id="radio160" <?php if($q6c3r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="113" value="Insatisfait" type="radio" class="with-gap" id="radio161" <?php if($q6c3r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="113" value="Peu satisfait" type="radio" class="with-gap" id="radio162" <?php if($q6c3r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="113" value="Satisfait" type="radio" class="with-gap" id="radio163" <?php if($q6c3r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="113" value="Très satisfait" type="radio" class="with-gap" id="radio164" <?php if($q6c3r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="113i"  type="texte" class="with-gap" id="radio164i" value="<?php if(isset($q6c3r3)) echo($q6c3r3);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q6c4);?></td>
-                                            <td> <input name="114" value="Pas concerné" type="radio" class="with-gap" id="radio165"></td>
-                                            <td> <input name="114" value="Insatisfait" type="radio" class="with-gap" id="radio166"></td>
-                                            <td> <input name="114" value="Peu satisfait" type="radio" class="with-gap" id="radio167"></td>
-                                            <td> <input name="114" value="Satisfait" type="radio" class="with-gap" id="radio168"></td>
-                                            <td> <input name="114" value="Très satisfait" type="radio" class="with-gap" id="radio169"></td>
-                                            <td> <input name="114i"  type="texte" class="with-gap" id="radio169i"></td>
+                                            <td> <input name="114" value="Pas concerné" type="radio" class="with-gap" id="radio165" <?php if($q6c4r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="114" value="Insatisfait" type="radio" class="with-gap" id="radio166" <?php if($q6c4r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="114" value="Peu satisfait" type="radio" class="with-gap" id="radio167" <?php if($q6c4r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="114" value="Satisfait" type="radio" class="with-gap" id="radio168" <?php if($q6c4r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="114" value="Très satisfait" type="radio" class="with-gap" id="radio169" <?php if($q6c4r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="114i"  type="texte" class="with-gap" id="radio169i" value="<?php if(isset($q6c4r4)) echo($q6c4r4);?>"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -691,12 +708,12 @@ $rep5="Très satisfait";
                                         <tbody>
                                           <tr>
                                             <td><?php echo($q7c1);?></td>
-                                            <td> <input name="115" value="Pas concerné" type="radio" class="with-gap" id="radio170"></td>
-                                            <td> <input name="115" value="Insatisfait" type="radio" class="with-gap" id="radio171"></td>
-                                            <td> <input name="115" value="Peu satisfait" type="radio" class="with-gap" id="radio172"></td>
-                                            <td> <input name="115" value="Satisfait" type="radio" class="with-gap" id="radio173"></td>
-                                            <td> <input name="115" value="Très satisfait" type="radio" class="with-gap" id="radio174"></td>
-                                            <td> <input name="115i" type="texte" class="with-gap" id="radio174i"></td>
+                                            <td> <input name="115" value="Pas concerné" type="radio" class="with-gap" id="radio170" <?php if($q7c1r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="115" value="Insatisfait" type="radio" class="with-gap" id="radio171" <?php if($q7c1r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="115" value="Peu satisfait" type="radio" class="with-gap" id="radio172" <?php if($q7c1r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="115" value="Satisfait" type="radio" class="with-gap" id="radio173" <?php if($q7c1r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="115" value="Très satisfait" type="radio" class="with-gap" id="radio174" <?php if($q7c1r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="115i" type="texte" class="with-gap" id="radio174i" value="<?php if(isset($q7c1r1)) echo($q7c1r1);?>"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -727,39 +744,39 @@ $rep5="Très satisfait";
                                         <tbody>
                                           <tr>
                                             <td><?php echo($q8c1);?></td>
-                                            <td> <input name="116" value="Pas concerné" type="radio" class="with-gap" id="radio175"></td>
-                                            <td> <input name="116" value="Insatisfait" type="radio" class="with-gap" id="radio176"></td>
-                                            <td> <input name="116" value="Peu satisfait" type="radio" class="with-gap" id="radio177"></td>
-                                            <td> <input name="116" value="Satisfait" type="radio" class="with-gap" id="radio178"></td>
-                                            <td> <input name="116" value="Très satisfait" type="radio" class="with-gap" id="radio179"></td>
-                                            <td> <input name="116i"  type="texte" class="with-gap" id="radio179i"></td>
+                                            <td> <input name="116" value="Pas concerné" type="radio" class="with-gap" id="radio175" <?php if($q8c1r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="116" value="Insatisfait" type="radio" class="with-gap" id="radio176" <?php if($q8c1r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="116" value="Peu satisfait" type="radio" class="with-gap" id="radio177" <?php if($q8c1r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="116" value="Satisfait" type="radio" class="with-gap" id="radio178" <?php if($q8c1r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="116" value="Très satisfait" type="radio" class="with-gap" id="radio179" <?php if($q8c1r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="116i"  type="texte" class="with-gap" id="radio179i" value="<?php if(isset($q8c1r1)) echo($q7c1r1);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q8c2);?></td>
-                                            <td> <input name="117" value="Pas concerné" type="radio" class="with-gap" id="radio180"></td>
-                                            <td> <input name="117" value="Insatisfait" type="radio" class="with-gap" id="radio181"></td>
-                                            <td> <input name="117" value="Peu satisfait" type="radio" class="with-gap" id="radio182"></td>
-                                            <td> <input name="117" value="Satisfait" type="radio" class="with-gap" id="radio183"></td>
-                                            <td> <input name="117" value="Très satisfait" type="radio" class="with-gap" id="radio184"></td>
-                                            <td> <input name="117i"  type="texte" class="with-gap" id="radio184i"></td>
+                                            <td> <input name="117" value="Pas concerné" type="radio" class="with-gap" id="radio180" <?php if($q8c2r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="117" value="Insatisfait" type="radio" class="with-gap" id="radio181" <?php if($q8c2r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="117" value="Peu satisfait" type="radio" class="with-gap" id="radio182" <?php if($q8c2r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="117" value="Satisfait" type="radio" class="with-gap" id="radio183" <?php if($q8c2r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="117" value="Très satisfait" type="radio" class="with-gap" id="radio184" <?php if($q8c2r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="117i"  type="texte" class="with-gap" id="radio184i" value="<?php if(isset($q8c2r2)) echo($q8c2r2);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q8c3);?></td>
-                                            <td> <input name="118" value="Pas concerné" type="radio" class="with-gap" id="radio185"></td>
-                                            <td> <input name="118" value="Insatisfait" type="radio" class="with-gap" id="radio186"></td>
-                                            <td> <input name="118" value="Peu satisfait" type="radio" class="with-gap" id="radio187"></td>
-                                            <td> <input name="118" value="Satisfait" type="radio" class="with-gap" id="radio188"></td>
-                                            <td> <input name="118" value="Très satisfait" type="radio" class="with-gap" id="radio189"></td>
-                                            <td> <input name="118i"  type="texte" class="with-gap" id="radio189i"></td>
+                                            <td> <input name="118" value="Pas concerné" type="radio" class="with-gap" id="radio185" <?php if($q8c3r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="118" value="Insatisfait" type="radio" class="with-gap" id="radio186" <?php if($q8c3r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="118" value="Peu satisfait" type="radio" class="with-gap" id="radio187" <?php if($q8c3r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="118" value="Satisfait" type="radio" class="with-gap" id="radio188" <?php if($q8c3r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="118" value="Très satisfait" type="radio" class="with-gap" id="radio189" <?php if($q8c3r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="118i"  type="texte" class="with-gap" id="radio189i" value="<?php if(isset($q8c3r3)) echo($q8c3r3);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q8c4);?></td>
-                                            <td> <input name="119" value="Pas concerné" type="radio" class="with-gap" id="radio190"></td>
-                                            <td> <input name="119" value="Insatisfait" type="radio" class="with-gap" id="radio191"></td>
-                                            <td> <input name="119" value="Peu satisfait" type="radio" class="with-gap" id="radio192"></td>
-                                            <td> <input name="119" value="Satisfait" type="radio" class="with-gap" id="radio193"></td>
-                                            <td> <input name="119" value="Très satisfait" type="radio" class="with-gap" id="radio194"></td>
-                                            <td> <input name="119i"  type="texte" class="with-gap" id="radio194i"></td>
+                                            <td> <input name="119" value="Pas concerné" type="radio" class="with-gap" id="radio190" <?php if($q8c4r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="119" value="Insatisfait" type="radio" class="with-gap" id="radio191" <?php if($q8c4r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="119" value="Peu satisfait" type="radio" class="with-gap" id="radio192" <?php if($q8c4r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="119" value="Satisfait" type="radio" class="with-gap" id="radio193" <?php if($q8c4r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="119" value="Très satisfait" type="radio" class="with-gap" id="radio194" <?php if($q8c4r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="119i"  type="texte" class="with-gap" id="radio194i" value="<?php if(isset($q8c4r4)) echo($q8c4r4);?>"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -790,30 +807,30 @@ $rep5="Très satisfait";
                                         <tbody>
                                           <tr>
                                             <td><?php echo($q9c1);?></td>
-                                            <td> <input name="120" value="Pas concerné" type="radio" class="with-gap" id="radio195"></td>
-                                            <td> <input name="120" value="Insatisfait" type="radio" class="with-gap" id="radio196"></td>
-                                            <td> <input name="120" value="Peu satisfait" type="radio" class="with-gap" id="radio197"></td>
-                                            <td> <input name="120" value="Satisfait" type="radio" class="with-gap" id="radio198"></td>
-                                            <td> <input name="120" value="Très satisfait" type="radio" class="with-gap" id="radio199"></td>
-                                            <td> <input name="120i"  type="texte" class="with-gap" id="radio199i"></td>
+                                            <td> <input name="120" value="Pas concerné" type="radio" class="with-gap" id="radio195" <?php if($q9c1r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="120" value="Insatisfait" type="radio" class="with-gap" id="radio196" <?php if($q9c1r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="120" value="Peu satisfait" type="radio" class="with-gap" id="radio197" <?php if($q9c1r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="120" value="Satisfait" type="radio" class="with-gap" id="radio198" <?php if($q9c1r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="120" value="Très satisfait" type="radio" class="with-gap" id="radio199" <?php if($q9c1r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="120i"  type="texte" class="with-gap" id="radio199i" value="<?php if(isset($q9c1r1)) echo($q9c1r1);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q9c2);?></td>
-                                            <td> <input name="121" value="Pas concerné" type="radio" class="with-gap" id="radio200"></td>
-                                            <td> <input name="121" value="Insatisfait" type="radio" class="with-gap" id="radio201"></td>
-                                            <td> <input name="121" value="Peu satisfait" type="radio" class="with-gap" id="radio202"></td>
-                                            <td> <input name="121" value="Satisfait" type="radio" class="with-gap" id="radio203"></td>
-                                            <td> <input name="121" value="Très satisfait" type="radio" class="with-gap" id="radio204"></td>
-                                            <td> <input name="121i"  type="texte" class="with-gap" id="radio204i"></td>
+                                            <td> <input name="121" value="Pas concerné" type="radio" class="with-gap" id="radio200" <?php if($q9c2r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="121" value="Insatisfait" type="radio" class="with-gap" id="radio201" <?php if($q9c2r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="121" value="Peu satisfait" type="radio" class="with-gap" id="radio202" <?php if($q9c2r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="121" value="Satisfait" type="radio" class="with-gap" id="radio203" <?php if($q9c2r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="121" value="Très satisfait" type="radio" class="with-gap" id="radio204" <?php if($q9c2r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="121i"  type="texte" class="with-gap" id="radio204i" value="<?php if(isset($q9c2r2)) echo($q9c2r2);?>"></td>
                                           </tr>
                                           <tr>
                                             <td><?php echo($q9c3);?></td>
-                                            <td> <input name="122" value="Pas concerné" type="radio" class="with-gap" id="radio205"></td>
-                                            <td> <input name="122" value="Insatisfait" type="radio" class="with-gap" id="radio206"></td>
-                                            <td> <input name="122" value="Peu satisfait" type="radio" class="with-gap" id="radio207"></td>
-                                            <td> <input name="122" value="Satisfait" type="radio" class="with-gap" id="radio208"></td>
-                                            <td> <input name="122" value="Très satisfait" type="radio" class="with-gap" id="radio209"></td>
-                                            <td> <input name="122i"  type="texte" class="with-gap" id="radio209i"></td>
+                                            <td> <input name="122" value="Pas concerné" type="radio" class="with-gap" id="radio205" <?php if($q9c3r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="122" value="Insatisfait" type="radio" class="with-gap" id="radio206" <?php if($q9c3r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="122" value="Peu satisfait" type="radio" class="with-gap" id="radio207" <?php if($q9c3r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="122" value="Satisfait" type="radio" class="with-gap" id="radio208" <?php if($q9c3r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="122" value="Très satisfait" type="radio" class="with-gap" id="radio209" <?php if($q9c3r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="122i"  type="texte" class="with-gap" id="radio209i" value="<?php if(isset($q9c3r3)) echo($q9c3r3);?>"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -843,12 +860,12 @@ $rep5="Très satisfait";
                                         <tbody>
                                           <tr>
                                             <td><?php echo($q10c1);?></td>
-                                            <td> <input name="123" value="Pas concerné" type="radio" class="with-gap" id="radio210"></td>
-                                            <td> <input name="123" value="Insatisfait" type="radio" class="with-gap" id="radio211"></td>
-                                            <td> <input name="123" value="Peu satisfait" type="radio" class="with-gap" id="radio212"></td>
-                                            <td> <input name="123" value="Satisfait" type="radio" class="with-gap" id="radio213"></td>
-                                            <td> <input name="123" value="Très satisfait" type="radio" class="with-gap" id="radio214"></td>
-                                            <td> <input name="123i" type="texte" class="with-gap" id="radio214i"></td>
+                                            <td> <input name="123" value="Pas concerné" type="radio" class="with-gap" id="radio210" <?php if($q10c1r == " Pas concerné"){ echo("checked");}?>></td>
+                                            <td> <input name="123" value="Insatisfait" type="radio" class="with-gap" id="radio211" <?php if($q10c1r == " Insatisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="123" value="Peu satisfait" type="radio" class="with-gap" id="radio212" <?php if($q10c1r == " Peu satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="123" value="Satisfait" type="radio" class="with-gap" id="radio213" <?php if($q10c1r == " Satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="123" value="Très satisfait" type="radio" class="with-gap" id="radio214" <?php if($q10c1r == " Très satisfait"){ echo("checked");}?>></td>
+                                            <td> <input name="123i" type="texte" class="with-gap" id="radio214i" value="<?php if(isset($q10c1r1)) echo($q10c1r1);?>"></td>
                                           </tr>
                                         </tbody>
                                       </table>
@@ -864,7 +881,7 @@ $rep5="Très satisfait";
 					  
 					  <div class="form-group">
                           <label for="comment">Vos suggestions: </label>
-                          <textarea class="form-control" rows="5" name="comment"></textarea>
+                          <textarea class="form-control" rows="5" name="comment"><?php echo($suggestions)?></textarea>
                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary active center-block">Mettre à jour</button>

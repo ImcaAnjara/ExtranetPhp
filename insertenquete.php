@@ -205,7 +205,7 @@ $data .= "&q6c1=" . urlencode(utf8_decode($q6c1));
 $data .= "&q6c1r=" . urlencode(utf8_decode($q6c1r));
 $data .= "&q6c1r1=" . urlencode(utf8_decode($q6c1r1));
 $data .= "&q6c2=" . urlencode(utf8_decode($q6c2));
-$data .= "&q6c2r=" . urlencode(utf8_decode($q6c2));
+$data .= "&q6c2r=" . urlencode(utf8_decode($q6c2r));
 $data .= "&q6c2r2=" . urlencode(utf8_decode($q6c2r2));
 $data .= "&q6c3=" . urlencode(utf8_decode($q6c3));
 $data .= "&q6c3r=" . urlencode(utf8_decode($q6c3r));

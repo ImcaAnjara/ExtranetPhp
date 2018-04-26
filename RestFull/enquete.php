@@ -253,6 +253,28 @@ function checkEnquetebyNumero($aParams = array()) {
 
 }
 
+function checkEnquetesuggestionsbyNumero($aParams = array()) {
+    global $con, $common, $connexion;
+    
+    $sql = "select suggestions from Enquete_details where 1 ";
+    if(empty($aParams['numero'])){
+        return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+    }
+    if(!empty($aParams['numero'])) {
+        $sql .= "and numero = " . $aParams['numero'];
+    }
+    
+    $res = odbc_exec($con,$sql);
+    // 	    $aData = $common->fetch2DArray($res, true);
+    $suggestion=odbc_result($res,"suggestions");
+    $suggestions = utf8_encode($suggestion);
+    $adata=array('suggestions' => $suggestions);
+    
+    $connexion->closeConnexion($con);
+    return json_encode(array('code' => 200, 'message' => "Suggestions" , 'data' =>  $adata));
+    
+}
+
 function AddAllcolumnsEnquetedetails($aParams = array()) {
     global $con, $common, $connexion;
     
