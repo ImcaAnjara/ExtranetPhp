@@ -171,6 +171,7 @@ function insertEnquetedetails($aParams){
     foreach($aParams as $field => $value){
         if(!empty($value) && in_array($field, $fieldList)){
             $valueClause[] = "`" . $field . "`";
+//             $value = str_replace("'" , "''", $value);
             $fieldChange[] = "' " . $value . "' ";
         }
     }

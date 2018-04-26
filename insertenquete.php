@@ -11,7 +11,7 @@ $q1c2= "Consignes administratives";
 $q1c2r= isset($_POST['102'])? 	$_POST['102'] : "";
 $q1c2r2= isset($_POST['102i'])? 	$_POST['102i'] : "";
 
-$q2="La formation vous a-t-elle permis d\%27atteindre les objectifs fixés?";
+$q2="La formation vous a-t-elle permis d''atteindre les objectifs fixés?";
 $q2c1= "Expression écrite";
 $q2c1r= isset($_POST['103'])? 	$_POST['103'] : "";
 $q2c1r1= isset($_POST['103i'])? 	$_POST['103i'] : "";
@@ -39,7 +39,7 @@ $q3c4= "Structure";
 $q3c4r= isset($_POST['1106'])? 	$_POST['1106'] : "";
 $q3c4r4= isset($_POST['1106i'])? 	$_POST['1106i'] : "";
 
-$q4="Etes-vous satisfait des conditions d\%27accueil lors de vos cours Face à Face à Forma2+ ? ";
+$q4="Etes-vous satisfait des conditions d''accueil lors de vos cours Face à Face à Forma2+ ? ";
 $q4c1= "Equipements et matériels";
 $q4c1r= isset($_POST['107'])? 	$_POST['107'] : "";
 $q4c1r1= isset($_POST['107i'])? 	$_POST['107i'] : "";
@@ -59,7 +59,7 @@ $q6="Etes-vous satisfait des supports pédagogiques? ";
 $q6c1= "Pertinence des termes du glossaire";
 $q6c1r= isset($_POST['111'])? 	$_POST['111'] : "";
 $q6c1r1= isset($_POST['111i'])? 	$_POST['111i'] : "";
-$q6c2= "Qualité du contenu (Livre et cahier d\%27exercices)";
+$q6c2= "Qualité du contenu (Livre et cahier d''exercices)";
 $q6c2r= isset($_POST['112'])? 	$_POST['112'] : "";
 $q6c2r2= isset($_POST['112i'])? 	$_POST['112i'] : "";
 $q6c3= "Audio/Vidéo";
