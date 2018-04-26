@@ -4,7 +4,7 @@
         e.preventDefault();
          
         $.getJSON(
-        	'http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=getBynumero',	
+        	'http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=getBynumero',	
             {numero: $('#numerodossier').val()},
             function(data){
             		if('200' == data.code){
@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
         e.preventDefault();
          
         $.getJSON(
-        	'http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=checkByNomPrenomOrMail',	
+        	'http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=checkByNomPrenomOrMail',	
             {mail: $('#email').val()},
             function(data){
             		if('200' == data.code){

@@ -10,7 +10,7 @@ $telephone = $_POST["client_zTel"];
 $mail = $_POST["client_zMail"];
 
 
-$url = "http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=insert";
+$url = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=insert";
 $date_creation = date('Y-m-d H:i:s');
 $data = "&civilite=" . urlencode(utf8_decode($civilite));
 $data .= "&nom=" . urlencode(utf8_decode($nom));
@@ -30,7 +30,7 @@ $jsonResp = $response->body;
 if(isset($jsonResp) && '200' == $jsonResp->code){
     
     
-    $url1 = "http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=checkByNomPrenomOrMail";
+    $url1 = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=checkByNomPrenomOrMail";
     $data1 = "&nom=" . urlencode(utf8_decode($nom));
     $data1 .= "&prenom=" . urlencode(utf8_decode($prenom));
     $response1 = \Httpful\Request::get($url1.$data1)->send();

@@ -2,7 +2,7 @@
 include('httpful.phar');
 $email  = $_POST["email"];
 
-$url = "http://extranet.forma2plus.com:808/php/stagiaires/stagiaires.php?func=checkByNomPrenomOrMail";
+$url = "http://extranet.forma2plus.com:808/php/stagiaires/extranet.php?func=checkByNomPrenomOrMail";
 $data = "&mail=" . urlencode($email);
 
 $urlEncode = $url.$data;
