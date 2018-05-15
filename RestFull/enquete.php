@@ -210,13 +210,22 @@ function deleteEnquete($aParams){
 function checkEnquetebyNumeros($aParams = array()) {
     global $con, $common, $connexion;
     
-    $sql = "select * from Enquete_details order by idenquete desc";
+    $sql = "select * from Enquete_details where 1 ";
+    if(empty($aParams['numero'])){
+        return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+    }
+    if(!empty($aParams['numero'])) {
+        $sql .= "and numero = " . $aParams['numero'];
+        $sql .=" order by idenquete desc";
+    }
+    
+//     $sql = "select * from Enquete_details";
 //     if(empty($aParams['numero'])){
 //         return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
 //     }
 //     if(!empty($aParams['numero'])) {
 //         $sql .= "and numero = " . $aParams['numero'];
-//         $sql .=" ORDER BY idenquete DESC LIMIT 1";
+//         $sql .=" order by idenquete desc";
 //     }
     
     //$sql = "select * from Enquete where numero = 169205 ";
@@ -234,7 +243,7 @@ function checkEnquetebyNumeros($aParams = array()) {
 function checkEnquetebyNumero($aParams = array()) {
     global $con, $common, $connexion;
     
-    $sql = "select * from Enquete where 1 ";
+    $sql = "select * from Enquete_details where 1 ";
     if(empty($aParams['numero'])){
         return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
     }

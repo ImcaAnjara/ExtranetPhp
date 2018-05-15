@@ -331,7 +331,7 @@ if(isset($jsonResp7) && '200' == $jsonResp7->code) {
                     </div>
                 </header>
                 <div class="container">
-                <form action="updatenquete.php" method="POST" enctype="multipart/form-data">
+                <form action="insertenquete.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
 						<section>
                             <div class="col-md-6 col-md-offset-3">
