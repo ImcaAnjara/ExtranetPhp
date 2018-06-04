@@ -324,7 +324,7 @@ $q10c1= "Globalement";
                                             <th>En partie</th>
                                             <th>Oui</th>
                                             <th>Tout à fait</th>
-                                            <th>Raison si insatisfait</th>
+                                            <th>Raison si pas du tout</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -391,7 +391,7 @@ $q10c1= "Globalement";
                                             <th>En partie</th>
                                             <th>Oui</th>
                                             <th>Tout à fait</th>
-                                            <th>Raison si insatisfait</th>
+                                            <th>Raison si pas du tout</th>
                                           </tr>
                                         </thead>
                                         <tbody>
