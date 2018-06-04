@@ -263,6 +263,29 @@ function checkEnquetebyNumero($aParams = array()) {
 
 }
 
+function checkAllEnquete($aParams = array()) {
+    global $con, $common, $connexion;
+    
+    $sql = "select * from Enquete_details where 1 ";
+//     if(empty($aParams['numero'])){
+//         return json_encode(array('code' => 400, 'message' => "Veuillez renseigner les parametres necessaires", 'data' =>  null));
+//     }
+//     if(!empty($aParams['numero'])) {
+//         $sql .= "and numero = " . $aParams['numero'];
+//     }
+    
+    //$sql = "select * from Enquete where numero = 169205 ";
+    
+    
+    $res = odbc_exec($con,$sql);
+    $aData = $common->fetch2DArray($res, true);
+    //var_dump(json_encode($aData), json_last_error_msg ());die;
+    $connexion->closeConnexion($con);
+    
+    return json_encode(array('code' => 200, 'message' => count($aData) . " enregistrement trouvé", 'data' =>  $aData));
+    
+}
+
 function checkEnquetesuggestionsbyNumero($aParams = array()) {
     global $con, $common, $connexion;
     

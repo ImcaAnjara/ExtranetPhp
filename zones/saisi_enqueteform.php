@@ -320,10 +320,10 @@ $q10c1= "Globalement";
                                           <tr>
                                             <th>Critères</th>
                                             <th>Pas concerné</th>
-                                            <th>Insatisfait</th>
-                                            <th>Peu satisfait</th>
-                                            <th>Satisfait</th>
-                                            <th>Très satisfait</th>
+                                            <th>Pas du tout</th>
+                                            <th>En partie</th>
+                                            <th>Oui</th>
+                                            <th>Tout à fait</th>
                                             <th>Raison si insatisfait</th>
                                           </tr>
                                         </thead>
@@ -387,10 +387,10 @@ $q10c1= "Globalement";
                                           <tr>
                                             <th>Critères</th>
                                             <th>Pas concerné</th>
-                                            <th>Insatisfait</th>
-                                            <th>Peu satisfait</th>
-                                            <th>Satisfait</th>
-                                            <th>Très satisfait</th>
+                                            <th>Pas du tout</th>
+                                            <th>En partie</th>
+                                            <th>Oui</th>
+                                            <th>Tout à fait</th>
                                             <th>Raison si insatisfait</th>
                                           </tr>
                                         </thead>
