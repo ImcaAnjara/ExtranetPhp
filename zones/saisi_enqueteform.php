@@ -1,5 +1,5 @@
 <?php 
-session_start();
+//session_start();
 
 include('httpful.phar');
 
@@ -212,59 +212,89 @@ $q10c1= "Globalement";
 
 
 
-<section id="main" class="no-padding">
-                <header class="page-header">
+<section id="main" class="no-padding page-quizz">
+                <header class="page-header site-header">
                     <div class="container">
-                    
                     <div class="container-fluid bg-1 text-center">
-   						 <br><img src="design/extranet/images/logo.jpg" alt="Forma2+">
+   						<img src="design/extranet/images/logo.jpg" alt="Forma2+">
   					</div>
                     
                         <div class="col-md-6"></div>
                         <div class="col-md-6"></div>
                         <div class="col-md-6"></div>
-                        <br>
+
                     </div>
                 </header>
                 <div class="container">
                 <form action="insertenquete.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
-						<section>
-                            <div class="col-md-6 col-md-offset-3">
-                            <div class="panel panel-primary">
-                          <div class="panel-heading text-center"><h4>ENQUÊTE DE SATISFACTION </h4></div>
-    					</div>
-                            
-                            </div>
-                        </section>
-                        
+
+<div class="col-md-12">
                         <section class="content-section bg-light" id="about">
                               <div class="container text-left">
+                                  <h1>ENQUÊTE DE SATISFACTION </h1>
                                 <div class="row">
                                 	<div class="col-sm-4">
-                                	  <label style="font-size: 16px;color:#337ab7;">Nom : </label> <label style="font-size: 16px;"><?php echo($coord);?></label><br>
-                                      <label style="font-size: 16px;color:#337ab7;">Société : </label> <label style="font-size: 16px;"><?php echo($societe);?></label><br>
-								      <label style="font-size: 16px;color:#337ab7;">Date : </label> <label style="font-size: 16px;"><?php  echo(date("d/m/Y"));?></label><br>
+                                	<ul class="content-infos">
+                                        <li>
+                                            <span class="label-titre">Nom : </span>
+                                            <span class="label-elem"><?php echo($coord);?></span>
+                                        </li>
+                                        <li>
+                                            <span class="label-titre">Société : </span>
+                                            <span class="label-elem"><?php echo($societe);?></span>
+                                        </li>
+                                        <li>
+                                            <span class="label-titre">Date : </span>
+                                            <span class="label-elem"><?php  echo(date("d/m/Y"));?></span>
+                                        </li>
+                                    </ul>
+
+
 								    </div>
 								    <div class="col-sm-4">
-								    	<label style="font-size: 16px;color:#337ab7;">Intitulé de la formation : </label> <label style="font-size: 16px;"><?php echo($formation);?></label><br>
-								    	<label style="font-size: 16px;color:#337ab7;">N° stage : </label> <label style="font-size: 16px;"><?php echo($numstage);?></label><br>
-                                		<label style="font-size: 16px;color:#337ab7;">Module : </label> <label style="font-size: 16px;"><?php echo($module);?></label><br>
+                                        <ul class="content-infos">
+                                            <li>
+                                                <span class="label-titre">Intitulé de la formation : </span>
+                                                <span class="label-elem"><?php echo($formation);?></span>
+                                            </li>
+                                            <li>
+                                                <span class="label-titre">N° stage : </span>
+                                                <span class="label-elem"><?php echo($numstage);?></span>
+                                            </li>
+                                            <li>
+                                                <span class="label-titre">Module : </span>
+                                                <span class="label-elem"><?php echo($module);?></span>
+                                            </li>
+                                        </ul>
+
+
+
 								    </div>
                                 	<div class="col-sm-4">
-                                		  
-                                		  <label style="font-size: 16px;color:#337ab7;">Prof FAF :</label> <label style="font-size: 16px;"><?php echo($proffaf);?></label><br>
-                                          <label style="font-size: 16px;color:#337ab7;">Prof TEL :</label> <label style="font-size: 16px;"><?php echo($proftut." ".$proftel);?></label><br>
-                                          <label style="font-size: 16px;color:#337ab7;">Période : </label> <label style="font-size: 16px;"><?php echo($periode);?></label><br>
-                                          
+                                        <ul class="content-infos">
+<li>
+    <span class="label-titre">Prof FAF :</span>
+    <span class="label-elem"><?php echo($proffaf);?></span>
+</li>
+<li>
+    <span class="label-titre">Prof TEL :</span>
+    <span class="label-elem"><?php echo($proftut." ".$proftel);?></span>
+</li>
+<li>
+    <span class="label-titre">Période : </span>
+    <span class="label-elem"><?php echo($periode);?></span>
+</li>
+                                        </ul>
 								    </div>
                                 </div>
                               </div>
     					</section>
-    					<br>
+</div>
+                        <div class="col-md-12">
     					<div class="panel panel-primary">
                           <div class="panel-heading text-center"><h4><strong>1. <?php echo($q1);?></strong></h4></div>
-    					</div>
+
                       <div class="row">
                           <div class="col-sm-12">
                           	<div class="table-responsive">
@@ -306,12 +336,11 @@ $q10c1= "Globalement";
                          	 </div>
                           </div>
 					  </div>
+                    </div>
 					  
-					  
-					  <br>
+
     					<div class="panel panel-primary">
                           <div class="panel-heading text-center"><h4><strong>2. <?php echo($q2);?> </strong></h4></div>
-    					</div>
                       <div class="row">
                           <div class="col-sm-12">
                           	<div class="table-responsive">
@@ -373,12 +402,9 @@ $q10c1= "Globalement";
                          	 </div>
                           </div>
 					  </div>
-					  
-					  
-					  <br>
+                    </div>
     					<div class="panel panel-primary">
                           <div class="panel-heading text-center"><h4><strong>3. <?php echo($q3);?></strong></h4></div>
-    					</div>
                       <div class="row">
                           <div class="col-sm-12">
                           	<div class="table-responsive">
@@ -440,12 +466,10 @@ $q10c1= "Globalement";
                          	 </div>
                           </div>
 					  </div>
-					  
-					  
-					  <br>
+                    </div>
+
     					<div class="panel panel-primary">
                           <div class="panel-heading text-center"><h4><strong>4. <?php echo($q4);?> </strong></h4></div>
-    					</div>
                       <div class="row">
                           <div class="col-sm-12">
                           	<div class="table-responsive">
@@ -487,11 +511,11 @@ $q10c1= "Globalement";
                          	 </div>
                           </div>
 					  </div>
-					  
-					  <br>
+                        </div>
+
     					<div class="panel panel-primary">
                           <div class="panel-heading text-center"><h4><strong>5. <?php echo($q5);?> </strong></h4></div>
-    					</div>
+
                       <div class="row">
                           <div class="col-sm-12">
                           	<div class="table-responsive">
@@ -533,11 +557,11 @@ $q10c1= "Globalement";
                          	 </div>
                           </div>
 					  </div>
-					  
-					  <br>
+                    </div>
+
     					<div class="panel panel-primary">
                           <div class="panel-heading text-center"><h4><strong>6. <?php echo($q6);?> </strong></h4></div>
-    					</div>
+
                       <div class="row">
                           <div class="col-sm-12">
                           	<div class="table-responsive">
@@ -595,11 +619,11 @@ $q10c1= "Globalement";
                          	 </div>
                           </div>
 					  </div>
-					  
-					  <br>
+                    </div>
+
     					<div class="panel panel-primary">
                           <div class="panel-heading text-center"><h4><strong>7. <?php echo($q7);?> </strong></h4></div>
-    					</div>
+
                       <div class="row">
                           <div class="col-sm-12">
                           	<div class="table-responsive">
@@ -630,12 +654,12 @@ $q10c1= "Globalement";
                          	 </div>
                           </div>
 					  </div>
+                    </div>
 					  
-					  
-					    <br>
+
     					<div class="panel panel-primary">
                           <div class="panel-heading text-center"><h4><strong>8. <?php echo($q8);?></strong></h4></div>
-    					</div>
+
                       <div class="row">
                           <div class="col-sm-12">
                           	<div class="table-responsive">
@@ -693,12 +717,11 @@ $q10c1= "Globalement";
                          	 </div>
                           </div>
 					  </div>
+                        </div>
 					  
-					  
-					  <br>
-    					<div class="panel panel-primary">
+                        <div class="panel panel-primary">
                           <div class="panel-heading text-center"><h4><strong>9. <?php echo($q9);?></strong></h4></div>
-    					</div>
+
                       <div class="row">
                           <div class="col-sm-12">
                           	<div class="table-responsive">
@@ -747,11 +770,11 @@ $q10c1= "Globalement";
                          	 </div>
                           </div>
 					  </div>
-					  
-					  <br>
+                    </div>
+
     					<div class="panel panel-primary">
                           <div class="panel-heading text-center"><h4><strong>10. <?php echo($q10);?></strong></h4></div>
-    					</div>
+
                       <div class="row">
                           <div class="col-sm-12">
                           	<div class="table-responsive">
@@ -782,17 +805,23 @@ $q10c1= "Globalement";
                          	 </div>
                           </div>
 					  </div>
-					  
-					  <br>
-					  
+                    </div>
+
+
 					  <div class="panel panel-primary">
-                          <div class="panel-heading text-center"><h4><strong>11. Vos suggestions, vos commentaires ou vos remarques éventuelles</strong></h4></div>
-    					</div>
-					  
-					  <div class="form-group">
-                          <label for="comment">Vos suggestions: </label>
-                          <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
-                       </div>
+                          <div class="panel-heading text-center">
+                              <h4><strong>11. Vos suggestions, vos commentaires ou vos remarques éventuelles</strong></h4>
+                          </div>
+
+                            <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="comment">Vos suggestions: </label>
+                            <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
+                            </div>
+                            </div>
+                          <div class="clearfix"></div>
+                    </div>
+                        </div>
                     </div>
                     <div class="alert alert-success">
  						 <h6><strong>Nous vous remercions d’avoir pris le temps de répondre à notre questionnaire. Vos réponses nous sont utiles pour améliorer notre service.</strong></h6> 

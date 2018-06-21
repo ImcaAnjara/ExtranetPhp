@@ -1,5 +1,9 @@
-<html>
-<header>
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+
+
 <title><?php echo($title); ?></title>
 <meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="design/extranet/bootstrap/css/bootstrap.css">
@@ -8,7 +12,7 @@
 <script type="text/javascript" src="design/extranet/js/jquery.min.js"></script>
 <script type="text/javascript" src="design/extranet/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="design/extranet/bootstrap/js/validator.js"></script>
-</header>
+</head>
 <body class="fixed-header" cz-shortcut-listen="true">
     <div class="page-box">
         <div class="page-box-content">
