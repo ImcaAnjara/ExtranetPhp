@@ -42,7 +42,8 @@
                     <div class="row">
                         <!-- .content -->
                             <form id="insertform" action="savestagiaire.php" method="POST" enctype="multipart/form-data" data-toggle="validator" >
-                                <div class="col-md-6 col-md-offset-3">
+                                <div class="step-outter">
+                                    <div class="step">
                                     <div class="row">
                                         <div class="form-group">
                                             <label class="control-label col-md-4">Civilité<span>*</span></label>
@@ -57,41 +58,42 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
-                                            <label class="control-label col-md-4">Nom<span>*</span></label>
-                                            <div class="col-md-8">
+                                            
+                                             <div class="col-md-6">
+                                            <label class="control-label">Nom<span>*</span></label>
+                                            
                                                 <input type="text" name="client_zNom"" id="client_zNom" class="form-control" required>
+                                           </div>
+                                       <div class="col-md-6">
+                                            <label class="control-label">Prénom<span>*</span></label>
+                                          <input type="text" name="client_zPrenom" id="client_zPrenom" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
-                                            <label class="control-label col-md-4">Prénom<span>*</span></label>
-                                            <div class="col-md-8"><input type="text" name="client_zPrenom" id="client_zPrenom" class="form-control" required></div>
-
+                                            <div class="col-md-12">
+                                            <label class="control-label">Société<span>*</span></label>
+                                            <input type="text" name="client_iSociete" id="client_iSociete" class="form-control" required>
+</div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
-                                            <label class="control-label col-md-4">Société<span>*</span></label>
-                                            <div class="col-md-8"><input type="text" name="client_iSociete" id="client_iSociete" class="form-control" required></div>
-
+                                            <div class="col-md-12">
+                                            <label class="control-label">Téléphone<span>*</span></label>
+                                            <input type="tel" name="client_zTel" id="client_zTel" class="form-control" required>
+</div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
-                                            <label class="control-label col-md-4">Téléphone<span>*</span></label>
-                                            <div class="col-md-8"><input type="text" name="client_zTel" id="client_zTel" class="form-control" required></div>
-
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group">
-
-                                            <label class="control-label col-md-4">E-mail<span>*</span></label>
-                                            <div class="col-md-8"><input type="email" name="client_zMail" id="client_zMail" class="form-control" data-error="Veuillez entrer une adresse email valide" required>
-                                            <div class="help-block with-errors"></div>
+<div class="col-md-12">
+                                            <label class="control-label">E-mail<span>*</span></label>
+                                           <input type="email" name="client_zMail" id="client_zMail" class="form-control" data-error="Veuillez entrer une adresse email valide" required>
+                                            <div class="help-block with-errors">
                                             </div>
-
+</div>
 
                                         </div>
                                     </div>
@@ -101,6 +103,7 @@
                                             <input class="btn btn-primary  special fit small" id="valider" type="submit" value="Enregister">
                                             <a href="index.php" class="btn btn-default btn-lg active" role="button" >Annuler</a>
                                         </div>
+                                    </div>
                                     </div>
                                 </div>
 

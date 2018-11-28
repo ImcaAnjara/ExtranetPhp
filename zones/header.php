@@ -2,16 +2,18 @@
 <html lang="fr-FR">
 <head>
     <meta charset="UTF-8">
-
-
+<meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 <title><?php echo($title); ?></title>
-<meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="design/extranet/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="design/extranet/css/layout.css">
 <link rel="stylesheet" href="design/extranet/css/style1.css">
+<link rel="stylesheet" href="design/extranet/css/style.css">
 <script type="text/javascript" src="design/extranet/js/jquery.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
 <script type="text/javascript" src="design/extranet/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="design/extranet/bootstrap/js/validator.js"></script>
+<script type="text/javascript" src="design/extranet/js/step.js"></script>
+
 </head>
 <body class="fixed-header" cz-shortcut-listen="true">
     <div class="page-box">
@@ -30,10 +32,10 @@
 
                         <div class="col-xs-6 col-md-10 col-lg-9 right-box">
                             <div class="right-box-wrapper">
-                                <div class="primary">
+                                <div class="primary pull-right">
                                     <div class="navbar navbar-default" role="navigation">
                                         <button type="button" class="navbar-toggle btn-navbar collapsed" data-toggle="collapse" data-target=".primary .navbar-collapse">
-                        <span class="text">Menu</span>
+                        
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>

@@ -1,4 +1,7 @@
 <?php 
+session_start ();
+?>
+<?php 
 
 $title="Forma 2+: Stagiaire ajouté";
 include ("zones/header.php");

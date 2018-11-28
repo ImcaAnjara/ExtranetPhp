@@ -1,6 +1,4 @@
-<?php 
-session_start ();
-?>
+
 <style>
 /* Center the loader */
 #loader {
