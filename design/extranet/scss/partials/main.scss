@@ -1,0 +1,262 @@
+
+body {
+    font-family: 'Roboto','Opens sans', sans-serif;
+    height: 100%;
+    line-height: 1.6;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    font-size:16px;
+}
+/*
+*  header
+*/
+.header {
+    background-color: rgba(255, 255, 255, .97);
+    min-height: 60px;
+    padding: 2px 0;
+    width: 100%;
+}
+
+.header .right-box {
+    display: table;
+}
+
+.header .right-box-wrapper {
+    display: table-cell;
+    height: 60px;
+    vertical-align: middle;
+}
+
+
+/* Primary Menu */
+
+.header .primary {
+    /*  float: left;*/
+    z-index: 900;
+}
+
+.header .primary .navbar {
+    background: none;
+    border: 0 none;
+    margin: 0;
+    min-height: 44px;
+}
+
+.header .primary .navbar .navbar-collapse {
+    padding: 0;
+    position: relative;
+}
+
+.header .primary .navbar .nav {
+    margin: 0;
+    position: relative;
+}
+
+.header .primary .navbar .nav>li {
+    padding: 3px 4px 0;
+    position: relative;
+}
+
+.header .primary .navbar .nav>li>a,
+.header .primary .navbar .nav>li>a:visited {
+    background: none;
+    border: 1px solid #fff;
+    border: 1px solid transparent;
+    color: #4b7bbf;
+    padding: 11px 14px;
+    position: static;
+    text-shadow: none;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    z-index: 901;
+}
+
+.header .primary .navbar .nav>.selected>a {
+    color: #777;
+}
+
+.header .primary .navbar .nav a>i {
+    margin-right: 2px;
+    opacity: .8;
+    filter: alpha(opacity=80);
+    text-align: center;
+    width: 15px;
+}
+
+/*
+* content
+*/
+
+.container-fit{
+    width:800px;
+}
+#main {
+    padding: 80px 0;
+}
+
+#main.no-padding {
+    padding: 0;
+}
+
+.page-header {
+    border-bottom: 1px solid #e1e1e1;
+    margin: 0 0 20px;
+    padding: 0;
+    background: #4b7bbf;
+}
+
+.page-header .title {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    color: #fff;
+    font-size: 24px;
+    height: 45px;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.page-header .container {
+    position: relative;
+}
+
+.page-header .container:before {
+    background: #1e1e1e;
+    bottom: 0px;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 15px;
+    margin: 0 0 -1px;
+    position: absolute;
+    width: 40px;
+}
+
+.recover-password{
+    font-size:12px;
+    margin-top:15px;
+    display:inline-block;
+}
+
+/*
+* multistep
+*/
+.step-outter{
+    width:50%;
+    margin:0 auto;
+    overflow:hidden;
+    position:relative;
+    box-sizing:border-box;
+    padding:20px;
+}
+
+.step{  
+background-color:#fff;
+
+border: 0 none;
+border-radius: 8px;
+/*box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);*/
+box-shadow: rgba(0, 0, 0, 0.45) 0px 2px 8px;
+padding: 2em 2em;
+box-sizing: border-box;
+width: 100%;
+margin: 0 auto;
+position: relative;
+
+}
+
+#validprofil .step:not(:first-of-type) {
+    display: none;
+}
+/*buttons*/
+#validprofil .action-button {
+    min-width: 100px;
+    background: #204590;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+#validprofil .action-button:hover,
+#validprofil .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #204590;
+}
+/*headings*/
+.fs-title,
+.fs-subtitle{
+    text-align:center;
+}
+.fs-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+    padding-top:15px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+    text-align:center;
+    width: 100%;
+    float:left;
+}
+#progressbar li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width:33.3%;
+    float: left;
+    position: relative;
+}
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 20px;
+    line-height: 20px;
+    display: block;
+    font-size: 10px;
+    color: #333;
+    background: white;
+    border-radius: 3px;
+    margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+    background: #27AE60;
+    color: white;
+}
+
+.hidden-options{
+    display:none;
+}
